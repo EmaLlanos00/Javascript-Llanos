@@ -31,13 +31,12 @@ arrayPlantas.push(new Plantas(10, 'aizoaceae', 'titanopsis', 'calcarea', 400, 'N
 arrayPlantas.push(new Plantas(11, 'asphodelaceae', 'haworthiopsis', 'marumiana', 300, 'N10'));
 arrayPlantas.push(new Plantas(12, 'crassulaceae', 'echeveria', 'red wine', 500, 'N8'));
 
-console.log(arrayPlantas.findIndex( (element) => element.id === 8));
+/* console.log(arrayPlantas.findIndex( (element) => element.id === 8)); */
 
 let repeat = true;
 
 while(repeat){
 let mainChoice = prompt('Hola, elegí una opción' + '\n1. Ver todos los productos' + '\n2. Ver cactus' + '\n3. Ver suculentas' + '\n4. Filtrar por...' + '\n5. Salir');
-console.log(mainChoice);
 
 if(mainChoice == '1'){
     const allPlants = arrayPlantas.slice(0, 12);
@@ -71,41 +70,36 @@ if(mainChoice == '1'){
     
     repeat = false;
 
-}/* else if (mainChoice == '4'){
+}else if (mainChoice == '4'){
     let sortChoice = prompt('Elegí cómo filtrar...' + '\n1. Mayor precio primero' + '\n2. Menor precio primero' + '\n3. Alfabético (A-Z)' + '\n4. Alfabético (Z-A)' + '\n5. Salir');
-    const sortArray = arrayPlantas.slice(0,12);
-    switch (sortChoice){
-        case '1': 
-        console.table(this.maxPricePlants.sort(((a, b) => b.price - a.price)));
-        const precios = [];
-        for (const price of maxPricePlants){
-            precios.push([price.genero + ' ' + price.especie + price.price]);
-        } 
-        precios.sort((a, b)=> b - a);
 
-         alert ('Filtro1');
-         
-        break;
-        case '2': 
-        alert ('Filtro2');
-        
-        break;
-        case '3': let nombreAscendente = sortArray.sort((a, b) => a.genero.localeCompare(b.genero));
-        return nombreAscendente;
-         alert (nombreAscendente);
-        case '4': 
-         alert ('Filtro4');
-         
-        break;
-        case '5':
-            
-        break;
-        default: 
-         alert ('elegí un filtro');
-         break;
-    } let repeat=false
+    const sortArray = arrayPlantas.slice(0);
     
-} */else if (mainChoice == '5'){
+    console.log (sortArray.length);
+//NO PUDE HACER QUE FUNCIONE ESTA FUNCIÓN, NO ENCUENTRO EL ERROR
+    function sorting(sortChoice, sortArray) {
+        switch (sortChoice) {
+            case '1': 
+                return sortArray.sort((a, b) => b.price - a.price);
+            case '2':
+                return sortArray.sort((a, b) => a.price - b.price);
+            case '3':
+                let toZet = sortArray.sort((a, b) => a.genero.localeCompare(b.genero));
+                alert (toZet);
+                return toZet;
+            case '4':
+                let toA = sortArray.sort((a, b) => b.genero.localeCompare(a.genero));
+                alert (toA);
+                return toA;
+            case '5':
+                break;
+            default:
+               alert ('elegí un filtro');
+               break;
+        }
+    } repeat = false
+    
+}else if (mainChoice == '5'){
     alert('Gracias por visitarnos :)')
     repeat = false;
 }else{
@@ -114,4 +108,34 @@ if(mainChoice == '1'){
 
 
 }
+//hice testeos con la función de sorting aislada pero no encontré el problema
+/* let sortChoice = prompt('Elegí cómo filtrar...' + '\n1. Mayor precio primero' + '\n2. Menor precio primero' + '\n3. Alfabético (A-Z)' + '\n4. Alfabético (Z-A)' + '\n5. Salir');
 
+const sortArray = arrayPlantas.slice(0);
+
+console.log ( sortArray.length );
+
+
+function sorting(sortChoice, sortArray) {
+    switch (sortChoice) {
+        case '1': 
+            return sortArray.sort((a, b) => b.price - a.price);
+        case '2':
+            return sortArray.sort((a, b) => a.price - b.price);
+        case '3':
+            let toZet = sortArray.sort((a, b) => a.genero.localeCompare(b.genero));
+            alert (toZet);
+            return toZet;
+        case '4':
+            let toA = sortArray.sort((a, b) => b.genero.localeCompare(a.genero));
+            alert (toA);
+            return toA;
+        case '5':
+            break;
+        default:
+           alert ('elegí un filtro');
+           break;
+    }
+}
+
+console.log (sorting()); */
