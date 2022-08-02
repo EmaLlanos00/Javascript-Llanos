@@ -1,0 +1,64 @@
+/*estilos de CARRITO*/
+#mainCarrito{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+.cartelFondo1{
+	@extend .cartelFondo0;
+	background-image: url(../img/plants/plantas4.webp);
+	.cartelCarro{
+		width: 50% !important;
+	}
+}
+/*estilos de BLOG*/
+#mainAboutUs{
+	h2 {
+		overflow: hidden;
+		text-align: center;
+	  
+	  
+	  &:before,
+	  &:after {
+		background-color: #000;
+		content: "";
+		display: inline-block;
+		height: 1px;
+		position: relative;
+		vertical-align: middle;
+		width: 50%;
+	  }
+	  
+	  &:before {
+		right: 0.5em;
+		margin-left: -50%;
+	  }
+	  
+	  &:after {
+		left: 0.5em;
+		margin-right: -50%;
+	  }
+	}
+}
+.longCards1{
+	width: 100%;
+	height: auto;
+	@media (min-width: 1200px){
+	.col-md-4 {
+    flex: 0 0 auto;
+    width: 20%;
+			}
+		}
+	.row{
+		@include flex(row, wrap, flex-start, flex-start)
+	}
+}
+.longCards2{
+	@extend .longCards1;
+	.row{
+		justify-content: space-between;
+	}
+}

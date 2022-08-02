@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Encuentre aquí las mejores ofertas en cactus y suculentas. También ofrecemos todo tipo de insumos relativos a la jardinería de plantas crasas.">
+	<meta name="author" content="Emanuel Llanos">
+	<title>Sucusstore - tienda de suculentas y más</title>
+	<link rel="shortcut icon" href="img/favicon.png">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="animaciones/animations.css">
+	
+</head>
+<body>
+    <!--inicia nav y cartel promocional-->
+		<nav class="navbar navbar-expand-lg nav sticky-top">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="#"><img class="w-100" src="img/logo-ss.webp" alt="logo succus store"></a>
+			  <div>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <button class="navbar-toggler" type="button" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="littleCart"><a class="nav-link" href="./pages/carrito.html"></a></span>
+			  </button>
+			</div>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item hover-underline-animation">
+					<a class="nav-link" href="./pages/blog.html">Blog</a>
+				  </li>
+				  <li class="nav-item dropdown hover-underline-animation">
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  Productos
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="./pages/productos.html">Cactus</a></li>
+						<li><a class="dropdown-item" href="./pages/productos.html">Suculentas</a></li>
+						<li><a class="dropdown-item" href="./pages/productos.html">Macetas</a></li>
+						<li><a class="dropdown-item" href="./pages/productos.html">Otros</a></li>
+					</ul>
+				  </li>
+				  <li class="nav-item hover-underline-animation">
+					<a class="nav-link" href="./index.html#formulario">Contacto</a>
+				  </li>
+				  <li class="nav-item hover-underline-animation">
+					<a class="nav-link" href="./pages/cuenta.html">Cuenta</a>
+				  </li>
+				  <li class="nav-item d-none d-lg-block"><a class="nav-link" href="./pages/carrito.html"><img src="img/cart.png" alt="icono carrito de compras negro"></a></li>
+				</ul>
+				<form class="d-flex" role="search">
+				  <input class="form-control me-2 formFix" type="search" placeholder="Buscá algo..." aria-label="Search">
+				  <button class="btn btn-outline-success formFix" type="submit">Buscar</button>
+				</form>
+			  </div>
+			  
+			</div>
+		  </nav>
+	<div id="bodyIndex">
+		<div class="itemsSignStyle sign text-center"> 
+			<h1 class="text-center">Envíos gratis en compras superiores a 4000!!!</h1>
+		</div>
+		<!--finaliza nav y cartel procional-->
+		<!-- inicia slider de fotos-->
+			<div id="carouselExampleCaptions" class="carousel slide header" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+				<div class="carousel-item active" data-bs-interval="5000">
+					<img src="img/plants/banner1.webp" class="d-block w-100" alt="banner de echeverias de color rojo, amarillo y verde oscuro">
+					<div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
+					<h5 class="fs-1">Echeverias a todo color</h5>
+					<p class="fs-4">Disponibles en macetas N8, N10 y más</p>
+					</div>
+				</div>
+				<div class="carousel-item" data-bs-interval="5000">
+					<img src="img/plants/banner2.webp" class="d-block w-100" alt="banner plantas colgantes">
+					<div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
+					<h5 class="fs-1">También tenemos plantas colgantes</h5>
+					<p class="fs-4">En macetas tipo bol N15, N18 y N25</p>
+					</div>
+				</div>
+				<div class="carousel-item" data-bs-interval="5000">
+					<img src="img/plants/banner3.webp" class="d-block w-100" alt="collage de 3 fotos de plantas">
+					<div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
+					<h5 class="fs-1">Amplia variedad en cactus y suculentas</h5>
+					<p class="fs-4">Consultar tamaños y precios</p>
+					</div>
+				</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		<!-- inicia galería de productos destacados-->    	
+		<main class="mb-4" id="destacados">
+			<div id="indexFotos">
+				<h2 class="itemsTitleStyle rounded-pill" id="h1Fotos">Destacados</h2>
+				<div class="fotoss1">
+					<img src="img/plants/kalanchoe-luciae.webp" alt="planta kalanchoe luciae">
+				</div>
+				<div class="fotoss2">
+					<img src="img/plants/echeveria-lola.webp" alt="planta echeveria lola">
+				</div>
+				<div class="fotoss3">
+					<img src="img/plants/haworthia-truncata.webp" alt="planta haworthia truncata">
+				</div>
+				<div class="fotoss4">
+					<img src="img/plants/senecio-kleiniformis.webp" alt="planta senecio kleiniformis">
+				</div>
+				<div class="fotoss5">
+					<img src="img/plants/pinky-trumpet.webp" alt="echeveria pinky trumpet">
+				</div>
+			</div>
+		</main>
+		<aside id="nuevasMacetas" class="asideStyles">
+			<h3 class="itemsTitleStyle rounded-pill">NUEVAS MACETAS</h3>
+			<div class="h-100 d-flex flex-column flex-wrap align-items-center justify-content-between">
+				<img class="w-75 rounded border border-secundary border-2" src="img/miscellaneous/macetas-facetadas.webp"
+					alt="macetas facetadas de colores varios">
+				<img class="w-75 rounded border border-secundary border-2" src="img/miscellaneous/maceta-ceramica-buho.webp"
+					alt="maceta de ceramica con forma de buho color verde oscuro">
+				<img class="w-75 rounded border border-secundary border-2" src="img/miscellaneous/macetas-barro-cilindro.webp"
+					alt="macetas de barro cilíndricas">
+			</div>
+		</aside>
+		<aside class="objCentred" id="blogCartel">
+			<div class="container-fluid cartelFondo0 objCentred h-75 m-5">
+				<h2 class="cartelCarro">No te olvides de visitar nuestro nuevo blog con consejos e info extra.</h2>
+			</div>
+		</aside>
+		<aside id="piedras" class="asideStyles">
+			<h3 class="itemsTitleStyle rounded-pill">PIEDRITAS</h3>
+			<div class="h-100 d-flex flex-column flex-wrap align-items-center justify-content-between">
+				<img class="w-75 rounded border border-secundary border-2" src="img/miscellaneous/piedras-celestes.webp"
+					alt="piedritas color celeste decoracion">
+				<img class="w-75 rounded border border-secundary border-2" src="img/miscellaneous/canto-rodado.webp"
+					alt="canto rodado piedras marrones">
+				<img class="w-75 rounded border border-secundary border-2" src="img/miscellaneous/piedras-blancas.webp"
+					alt="piedras naturales blancas">
+				<img class="w-75 rounded border border-secundary border-2" src="img/miscellaneous/piedras-verdes.webp"
+					alt="piedras naturales color verde oscuro">
+				<img class="w-75 rounded border border-secundary border-2" src="img/miscellaneous/piedras-onix.webp"
+					alt="piedras tipo onix decorativas">
+			</div>
+		</aside>
+		<section id="nuevasPlantas" class="asideStyles">
+			<h3 class="itemsTitleStyle rounded-pill">NUEVAS PLANTAS</h3>
+			<div class="d-flex flex-row flex-wrap align-items-center justify-content-around">
+				<img class="w-25 rounded border border-secundary border-2 mb-3" src="img/plants/echeveria-gorgon-grotto.webp"
+					alt="echeveria gorgon grotto planta">
+				<img class="w-25 rounded border border-secundary border-2 mb-3" src="img/plants/titanopsis-calcarea.webp"
+					alt="titanopsis calcarea planta">
+				<img class="w-25 rounded border border-secundary border-2 mb-3" src="img/plants/delosperma-lehmannii.webp"
+					alt="planta delosperma lehmannii">
+				<img class="w-25 rounded border border-secundary border-2 mb-3" src="img/plants/cerebritos.webp"
+					alt="cactus cerebro cerebrito crestado">
+			</div>
+		</section>
+		<!-- finaliza galería destacados-->
+		<!--inicia formulario-->
+		<section class="text-center bodyPageFont contactFormStyle objCentred container-fluid" id="contacto">
+			<article class="w-100">
+				<form action="envio.php" method="post" id=formulario>
+						<fieldset>
+								<legend class="itemsTitleStyle rounded-pill">Contactanos!</legend>
+								<div class="form-floating mb-3">
+									<input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+									<label for="email">Correo</label>
+								  </div><br>
+								  <div class="form-check">
+									<label class="form-check-label" for="newsletter">
+										¿Le gustaría recibir las últimas novedades en su correo?
+									</label>
+									<input class="form-check-input" type="checkbox" value="" id="newsletter" checked>
+								  </div> <br>
+								<select class="form-select" aria-label="Default select example">
+									<option selected>Por favor, indique el asunto de su consulta</option>
+									<option value="1">Compras</option>
+									<option value="2">Envíos</option>
+									<option value="3">Otros</option>
+								</select><br>
+								<div class="form-floating">
+									<textarea class="form-control" placeholder="Leave a comment here" id="mensajeIndex" style="height: 20rem"></textarea>
+									<label for="mensajeIndex">Mensaje</label>
+								  </div>
+						</fieldset>
+				</form> 
+			</article>
+		</section>
+		<!--finaliza formulario, inicia footer-->
+		<svg style="grid-column: 1 / 4;" xmlns="http://www.w3.org/2000/svg" height="300pt" viewBox="0 0 1440 300">
+			<path fill="#ABFFD1" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,186.7C480,181,600,139,720,122.7C840,107,960,117,1080,122.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+		</svg>
+		<footer class="coolerFooter container-fluid">
+			<div>
+				<h3 class="text-center">Navegación</h3>
+				<div> 
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="./pages/productos.html">Productos</a></li>
+						<li><a href="./pages/cuenta.html">Cuenta</a></li>
+						<li><a href="./pages/blog.html">Blog</a></li>		
+					</ul>
+				</div>	
+			</div>
+			<div>
+				<h3 class="text-center">Medios de pago</h3>
+				<div class="conLogos">
+					<img src="img/footer/amex.png" alt="american express logo">
+					<img src="img/footer/argencard.png" alt="argencard logo">
+					<img src="img/footer/banelco.png" alt="banelco loco">
+					<img src="img/footer/cabal.png" alt="cabal logo">
+					<img src="img/footer/diners.png" alt="diners logo">
+					<img src="img/footer/mastercard.png" alt="mastercard logo">
+					<img src="img/footer/mercadopago.png" alt="mercado pago logo">
+					<img src="img/footer/pagofacil.png" alt="pagofacil logo">
+					<img src="img/footer/rapipago.png" alt="rapipago logo">
+					<img src="img/footer/tarjeta-naranja.png" alt="tarjeta naranja logo">
+					<img src="img/footer/tarjeta-shopping.png" alt="tarjeta shopping logo">
+					<img src="img/footer/visa.png" alt="visa logo">
+				</div>
+				<h3 class="text-center">Formas de envío</h3>
+				<div class="conLogos">
+					<img src="img/footer/oca.png" alt="oca logo">
+					<img id= "andreani" src="img/footer/andreani.svg" alt="andreani logo">
+				</div>
+			</div>
+			<div>
+				<h3 class="text-center">Contacto</h3>
+				<div>
+					<p class="text-center">
+						<span>0800-XXX-XXXX</span><br>
+						<span>callefalsa@unodostres.com</span><br>
+						<span>
+							<a href="https://www.instagram.com" target="blank"><img src="img/instagram-logo-32.png" alt="instagram icon"></a>  
+							<a href="https://www.twitter.com" target="blank"><img src="img/twitter-logo-30.png" alt="twitter icon"></a>
+							<a href="https://www.facebook.com" target="blank"><img src="img/icon-fb-30.png" alt="facebook icon"></a>
+						</span>
+					</p>
+				</div>
+			</div>
+			<div>
+				<h3 class="text-center">Información fiscal</h3>
+				<div class="infoLegal">
+					<img src="img/footer/QRfiscal.jpg" alt="codigo qr requerido por afip">
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

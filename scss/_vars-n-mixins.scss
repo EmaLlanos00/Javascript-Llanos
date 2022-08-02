@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@600&family=Zen+Maru+Gothic&display=swap');
+//fuentes
+$fuenteUno: 'Zen Maru Gothic', sans-serif;
+$fuenteDos: 'Montserrat', sans-serif;
+$fuenteTres:  'Nunito', sans-serif;
+//-------------mixins
+@mixin flex($flex-direction, $wrap, $align-items, $justify-content){
+    display: flex;
+    flex-direction: $flex-direction;
+    flex-wrap: $wrap;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+//-------------------mapa de colores
+$colors: (
+    color1: #c8bfe7,
+    color2: #CACACA,
+    color3: #f5f5f5,
+    color4: #808080,
+    color5: #c4fa7f,
+    color6: #ABFFD1,
+    color7: #37FFC1,
+    color8: #d3d3d3,
+    color9: #ffffff,
+    color10: #000000,
+);
+//----------------mapa para index animation
+$plant: (
+         1:  "Kalanchoe Luciae",      
+         2:  "Echeveria Lola",
+         3:  "Haworthia Truncata",
+         4:  "Senecio Kleiniformis",
+         5:  "Echeveria Pinky Trumpet",
+    );

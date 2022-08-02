@@ -1,0 +1,55 @@
+/*estilos de CUENTA*/
+//------------------------cartel
+.cartelFondo2{
+	@extend .cartelFondo0;
+	background-image: url(../img/plants/cactus1.webp);
+	.cartelCarro{
+		width: 50% !important;
+	}
+}
+//-------------------------GRID
+#accountBody {
+	display: grid;
+	overflow-x: hidden;
+	grid-template-areas:
+			  "form1 	form2" "pie 	pie";
+		min-height: 100vh;
+	grid-template-rows: 330px auto;
+	grid-template-columns: 50vw 50vw;
+
+}
+
+#form1 {
+	grid-area: form1;
+
+	.form-control {
+		font-size: 1.5rem;
+		width: 92%;
+	}
+}
+
+#form1 input,
+select {
+	margin: 1rem;
+}
+
+#form2 {
+	box-sizing: border-box;
+	grid-area: form2;
+}
+
+#form2 .form-control {
+	font-size: 1.5rem;
+	width: 95%;
+}
+
+/*CUENTA MD SIZE*/
+@media (max-width: 800px) {
+	#accountBody {
+		grid-template-areas:
+			"form1""form2""pie";
+		grid-template-rows: auto auto auto;
+		grid-template-columns: 100Vw;
+
+	}
+}

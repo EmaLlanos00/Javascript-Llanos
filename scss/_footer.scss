@@ -1,0 +1,84 @@
+
+/*------------estilos y layout para FOOTER--------*/
+  .coolerFooter{
+    width: 100vw;
+    height: auto;
+    padding: 0 10rem;
+    background-color: map-get($map: $colors, $key: color6);
+    grid-column: 1 / span 3;
+      @include flex(row, wrap, flex-start, space-around);
+     
+      h3{
+        margin-bottom: 0.8em;
+        text-decoration: underline 3px map-get($map: $colors, $key: color4);
+      }
+      div{
+        margin-bottom: 2rem;
+        @include flex(column, wrap, center, center);
+        ul{
+          list-style: none;
+          
+          li{
+            font-size: 1.5rem;
+            font-family: $fuenteTres;
+            line-height: 2.3em;
+          }
+        }
+        p{
+          width: fit-content;
+          font-size: 1.5rem;
+          font-family: $fuenteTres;
+        }
+      }
+      
+      .conLogos{
+        width: 1fr;
+        height: auto;
+        margin-bottom: 1rem;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        gap: 1em;
+        img{
+          width: 48px;
+          height: 30px;
+        }
+        #andreani{
+          width: 100px;
+          height: auto;
+        }
+      }
+      .infoLegal{
+        img{
+          width: 60px;
+          height: 80px;
+        }
+      }
+      @media (max-width: 558px){
+        padding: 0 1rem;
+        @include flex(column, nowrap, center, space-around);
+        h3{
+          font-size: 2.5rem;
+        }
+          div{
+            div{
+              ul{
+                width: 90vw;
+                li{
+                font-size: 2.2rem;
+                }
+              }
+              p{
+                padding: 0 8px;
+                width: 95vw;
+                font-size: 2.2rem;
+                span{
+                  word-wrap: break-word;
+
+                }
+              }
+             
+          }
+        }
+      }
+  }

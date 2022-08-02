@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Tenemos ejemplares de las más diversas especies, variedad en macetas, sustratos etc.">
+	<meta name="author" content="Emanuel Llanos">
+	<title>Artículos en venta</title>
+	<link rel="shortcut icon" href="../img/favicon.png">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../animaciones/animations.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg nav sticky-top">
+		<div class="container-fluid">
+		<a class="navbar-brand" href="../index.html"><img class="w-100" src="../img/logo-ss.webp" alt="logo succus store"></a>
+		<div>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<button class="navbar-toggler" type="button" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="littleCart"><a class="nav-link" href="carrito.html"></a></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<li class="nav-item hover-underline-animation">
+				<a class="nav-link" href="blog.html">Blog</a>
+			</li>
+			<li class="nav-item dropdown hover-underline-animation">
+				<a class="nav-link dropdown-toggle active"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Productos
+				</a>
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" href="productos.html">Cactus</a></li>
+					<li><a class="dropdown-item" href="productos.html">Suculentas</a></li>
+					<li><a class="dropdown-item" href="productos.html">Macetas</a></li>
+					<li><a class="dropdown-item" href="productos.html">Otros</a></li>
+				</ul>
+			</li>
+			<li class="nav-item hover-underline-animation">
+				<a class="nav-link" href="../index.html#formulario">Contacto</a>
+			</li>
+			<li class="nav-item hover-underline-animation">
+				<a class="nav-link" href="cuenta.html">Cuenta</a>
+			</li>
+			<li class="nav-item d-none d-lg-block"><a href="carrito.html"><img src="../img/cart.png" alt="icono carrito de compras"></a></li>
+			<li><button class="btn btn-primary d-md-none formFix" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive"
+				aria-controls="offcanvasResponsive"><img src="../img/burguer-button-24.svg" alt="boton hamburguesa"></button></li>
+			</ul>
+			<form class="d-flex" role="search">
+			<input class="form-control me-2 formFix" type="search" placeholder="Buscá algo..." aria-label="Search">
+			<button class="btn btn-outline-success formFix" type="submit">Buscar</button>
+			</form>
+		</div>
+		</div>
+  </nav>
+	<div id="bodyProductos">
+		<div class="itemsSignStyle divStyle sign"> 
+			<h1 class="text-center">Envíos gratis en compras superiores a 4000!!!</h1>
+		</div>
+		<!--finaliza nav y cartel procional-->
+		<!--inicia barra de navegación de productos-->	
+		<div id="menuProductos">
+			<button class="btn btn-primary d-md-none formFix fixedButton" type="button" data-bs-toggle="offcanvas"
+				data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive"><img
+					src="../img/burguer-button-24.svg" alt="boton hamburguesa"></button>
+		
+			<div class="alert alert-light d-none d-md-block formFix fs-2 text-center itemsTitleStyle rounded-pill">Categorías</div>
+		
+			<div class="offcanvas-md offcanvas-start" tabindex="-1" id="offcanvasResponsive"
+				aria-labelledby="offcanvasResponsiveLabel">
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Categorías</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive"
+						aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<div class="w-100">
+						<section class="accordion asideStyles" id="accordionExample">
+							<div class="accordion" id="accordionPanelsStayOpenExample">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+											data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+											aria-controls="panelsStayOpen-collapseOne">
+											CACTUS
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+										aria-labelledby="panelsStayOpen-headingOne">
+										<div class="accordion-body">
+											<ul>
+												<li>Astrophythum</li>
+												<li>Cereus</li>
+												<li>Echinocereus</li>
+												<li>Echinopsis</li>
+												<li>Ferocactus</li>
+												<li>Gymnocalycium</li>
+												<li>Mammillarias</li>
+												<li>Opuntias</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+											data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+											aria-controls="panelsStayOpen-collapseTwo">
+											SUCULENTAS
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+										aria-labelledby="panelsStayOpen-headingTwo">
+										<div class="accordion-body">
+											<ul>
+												<li>Adromischus</li>
+												<li>Aeonium</li>
+												<li>Cotyledon</li>
+												<li>Crassula</li>
+												<li>Echeveria</li>
+												<li>Graptopetalum</li>
+												<li>Kalanchoe</li>
+												<li>Pachyphytum</li>
+												<li>Sedum</li>
+												<li>Sempervivum</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingThree">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+											data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+											aria-controls="panelsStayOpen-collapseThree">
+											MACETAS
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+										aria-labelledby="panelsStayOpen-headingThree">
+										<div class="accordion-body">
+											<ul>
+												<li>Barro</li>
+												<li>Cemento/yeso</li>
+												<li>Plásticas</li>
+												<li>De autor</li>
+												<li>De cultivo</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingFour">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+											data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+											aria-controls="panelsStayOpen-collapseFour">
+											INSUMOS
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+										aria-labelledby="panelsStayOpen-headingFour">
+										<div class="accordion-body">
+											<ul>
+												<li>Sustratos</li>
+												<li>Piedras naturales</li>
+												<li>Piedras volcánicas</li>
+												<li>Telas y plásticos</li>
+												<li>Fungicidas e insecticidas</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!----------------------------------------inicia secciones de productos----------->
+			<section id="cactus" class="border border-2 border-end-0 border-top-0 mb-4">
+				<h2 class="itemsTitleStyle rounded-5 mt-4">Cactus</h2>
+				<div class="productGalery">
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/Astrophytum-asterias.jpg" alt="cactus astrophytum asterias">
+						</div>
+						<div class="contentCard">
+							<h3>Astrophytum asterias</h3>
+							<p>Disponible en maceta n10. $1150.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/gymnocalycium-erinaceum.jpg" alt="cactus gymnolacalucium erinaceum">
+						</div>
+						<div class="contentCard">
+							<h3>Gymnocalycium erinaceum</h3>
+							<p>En maceta cuadrada a $450!</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/mammillaria-pectinifera.jpg" alt="cactus mammillaria pectinifera">
+						</div>
+						<div class="contentCard">
+							<h3>Mammillaria pectinifera</h3>
+							<p>Ejemplar de colección a $2800 en maceta n8.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/Notocactus-submammulosa.jpg" alt="cactus notocactus submammulosa">
+						</div>
+						<div class="contentCard">
+							<h3>Notocactus submammulosa</h3>
+							<p>En oferta a $400, 2x700.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/astrophytum-myriostigma.webp" alt="cactus astrophytum-myriostigma">
+						</div>
+						<div class="contentCard">
+							<h3>Astrophytum myriostigma</h3>
+							<p>En macetas n6 a $300.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/ferocactus-latispinus.jpg" alt="cactus ferocactus latispinus">
+						</div>
+						<div class="contentCard">
+							<h3>Ferocactus latispinus</h3>
+							<p>Pequeños cactus a $270 c/u.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="sucus" class="border border-2 border-end-0 border-top-0 mb-4">
+				<h2 class="itemsTitleStyle rounded-5 mt-4">Suculentas</h2>
+				<div class="productGalery">
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/plantas 3.webp" alt="kalanchoe pink butterfly">
+						</div>
+						<div class="contentCard">
+							<h3>Kalanchoe "pink butterfly"</h3>
+							<p>Enormes a $400.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/graptopetalum-superbum.webp" alt="cactus ferocactus latispinus">
+						</div>
+						<div class="contentCard">
+							<h3>Graptopetalum superbum</h3>
+							<p>Único en maceta N16. $700.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/haworthia-attenuata-var.webp" alt="haworthia attenuata variegata">
+						</div>
+						<div class="contentCard">
+							<h3>haworthia attenuata variegata</h3>
+							<p>Ejemplar de lujo a $3900.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/titanopsis-calcarea.webp" alt="titanopsis calcarea planta">
+						</div>
+						<div class="contentCard">
+							<h3>Titanopsis calcarea</h3>
+							<p>En maceta número 8 a $400.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/Haworthia-Marumiana-var-Batesiana.webp" alt="haworthia marumiana batesiana">
+						</div>
+						<div class="contentCard">
+							<h3>Haworthia marumiana</h3>
+							<p>Con hijitos, a solo $300.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/plants/echeveria-red-wine.webp" alt="echeveria red wine">
+						</div>
+						<div class="contentCard">
+							<h3>Echeveria red wine</h3>
+							<p>A $500 c/u.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="macetas" class="border border-1 border-end-0 border-top-0 mb-4">
+				<h2 class="itemsTitleStyle rounded-5 mt-4">Macetas</h2>
+				<div class="productGalery">
+					<div class="shopCards">
+						<div>
+							<img src="../img/miscellaneous/macetitas.webp" alt="macetas plasticas con dibujos">
+						</div>
+						<div class="contentCard">
+							<h3>Macetas decoradas</h3>
+							<p>De plástico con frases surtidas. $90 c/u.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/miscellaneous/maceta-ceramica-buho.webp" alt="maceta de ceramica con forma de buho verde oscuro">
+						</div>
+						<div class="contentCard">
+							<h3>Maceta búho</h3>
+							<p>De cerámica, hecha a mano. $1500.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/miscellaneous/macetas-facetadas.webp" alt="macetas facetadas de colores">
+						</div>
+						<div class="contentCard">
+							<h3>Macetas facetadas</h3>
+							<p>Colores varios, diámetro 10cm. $60 c/u.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/miscellaneous/maceta-plastica-n10.webp" alt="macetas plásticas numero 10 de colores surtidos">
+						</div>
+						<div class="contentCard">
+							<h3>Macetas plástica n10</h3>
+							<p>Colores surtidos, $50 c/u.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/miscellaneous/macetas-barro-cilindro.webp" alt="3 macetas de barro de forma cilindrica">
+						</div>
+						<div class="contentCard">
+							<h3>Cilíndricas de barro.</h3>
+							<p>Varios tamaños. Consultar</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+					<div class="shopCards">
+						<div>
+							<img src="../img/miscellaneous/maceta-ceramica-2.webp" alt="maceta ceramica bol de rayas blancas y azul">
+						</div>
+						<div class="contentCard">
+							<h3>Cerámica bol</h3>
+							<p>En azul y rojo, $1300.</p>
+							<a href="#">Comprar</a>
+						</div>
+					</div>
+				</div>
+			</section>
+				
+			<section id="otros" class="asideStyles border border-2 border-end-0 border-top-0">
+			         <h2 class="itemsTitleStyle rounded-5 mt-3">Insumos</h2>
+			         <div class="flexAsideFotos">
+			         	<img class=" shopCards" src="../img/miscellaneous/insecticida.webp" alt="insecticida mata cochinilla y pulgon">
+						<img class=" shopCards" src="../img/miscellaneous/tela-antihelada.webp" alt="tela antihelada para plantas">
+			         	<img class=" shopCards" src="../img/miscellaneous/sustrato-plantas.webp" alt="sustrato para cacuts y suculentas">
+			         	<img class=" shopCards" src="../img/miscellaneous/fertilizante.webp" alt="fertilizante liquido">
+			         	<img class=" shopCards" src="../img/miscellaneous/tierra-diatomeas.webp" alt="tierra de diatomeas insecticida">
+						<img class=" shopCards" src="../img/miscellaneous/piedras-blancas.webp" alt="piedras naturales blancas">
+						<img class=" shopCards" src="../img/miscellaneous/piedras-verdes.webp" alt="piedras naturales color verde oscuro">
+						<img class=" shopCards" src="../img/miscellaneous/canto-rodado.webp" alt="canto rodado piedras marrones">
+			         </div>
+			</section>	
+		<!--finaliza secciones de productos-->
+		<!--inicia footer-->
+		<svg style="grid-column: 1 / 4;" xmlns="http://www.w3.org/2000/svg" height="300pt" viewBox="0 0 1440 300">
+			<path fill="#ABFFD1" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,186.7C480,181,600,139,720,122.7C840,107,960,117,1080,122.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+		</svg>
+		<footer class="coolerFooter">
+			<div>
+				<h3 class="text-center">Navegación</h3>
+				<div> 
+					<ul>
+						<li><a href="../index.html">Inicio</a></li>
+						<li><a href="productos.html">Productos</a></li>
+						<li><a href="cuenta.html">Cuenta</a></li>
+						<li><a href="blog.html">Blog</a></li>		
+					</ul>
+				</div>	
+			</div>
+			<div>
+				<h3 class="text-center">Medios de pago</h3>
+				<div class="conLogos">
+					<img src="../img/footer/amex.png" alt="american express logo">
+					<img src="../img/footer/argencard.png" alt="argencard logo">
+					<img src="../img/footer/banelco.png" alt="banelco loco">
+					<img src="../img/footer/cabal.png" alt="cabal logo">
+					<img src="../img/footer/diners.png" alt="diners logo">
+					<img src="../img/footer/mastercard.png" alt="mastercard logo">
+					<img src="../img/footer/mercadopago.png" alt="mercado pago logo">
+					<img src="../img/footer/pagofacil.png" alt="pagofacil logo">
+					<img src="../img/footer/rapipago.png" alt="rapipago logo">
+					<img src="../img/footer/tarjeta-naranja.png" alt="tarjeta naranja logo">
+					<img src="../img/footer/tarjeta-shopping.png" alt="tarjeta shopping logo">
+					<img src="../img/footer/visa.png" alt="visa logo">
+				</div>
+				<h3 class="text-center">Formas de envío</h3>
+				<div class="conLogos">
+					<img src="../img/footer/oca.png" alt="oca logo">
+					<img id= "andreani" src="../img/footer/andreani.svg" alt="andreani logo">
+				</div>
+			</div>
+			<div>
+				<h3 class="text-center">Contacto</h3>
+				<div>
+					<p class="text-center">
+						<span>0800-XXX-XXXX</span><br>
+						<span>callefalsa@unodostres.com</span><br>
+						<span>
+							<a href="https://www.instagram.com" target="blank"><img src="../img/instagram-logo-32.png" alt="instagram icon"></a>  
+							<a href="https://www.twitter.com" target="blank"><img src="../img/twitter-logo-30.png" alt="twitter icon"></a>
+							<a href="https://www.facebook.com" target="blank"><img src="../img/icon-fb-30.png" alt="facebook icon"></a>
+						</span>
+					</p>
+				</div>
+			</div>
+			<div>
+				<h3 class="text-center">Información fiscal</h3>
+				<div class="infoLegal">
+					<img src="../img/footer/QRfiscal.jpg" alt="codigo qr requerido por afip">
+				</div>
+			</div>
+		</footer> 
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	<script src="../JS/script.js"></script>
+</body>
+</html>

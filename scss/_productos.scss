@@ -1,0 +1,124 @@
+/*ESTILOS DE PRODUCTOS*/
+#bodyProductos {
+	display: grid;
+	overflow-x: hidden;
+
+	grid-template-areas:
+		"sign sign sign" "menu cactus otros" "menu sucus otros" "menu pots otros" "pie pie pie";
+	min-height: 100vh;
+	grid-template-rows: 3rem 1fr 1fr 0.5fr auto;
+	grid-template-columns: 1fr 3fr 1fr;
+	column-gap: 1rem;
+
+	#menuProductos {
+		grid-area: menu;
+		width: 100%;
+
+		.accordion {
+			width: 100%;
+			--bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgb(128, 128, 128, 0.4);
+		}
+
+		.accordion-button {
+			font-size: 2rem;
+		}
+
+		.accordion-button:not(.collapsed) {
+			color: map-get($map: $colors, $key: color4);
+			background-color: map-get($map: $colors, $key: color6);
+		}
+
+		ul {
+			width: 100%;
+			height: auto;
+			list-style: none;
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: flex-start;
+
+			li {
+				font-family: 'Zen Maru Gothic', sans-serif;
+				font-size: 2rem;
+				font-weight: bold;
+				color: black;
+				margin: 0 10px;
+				position: right center;
+			}
+		}
+	}
+
+	#cactus {
+		grid-area: cactus;
+	}
+
+	#sucus {
+		grid-area: sucus;
+	}
+
+	#macetas {
+		grid-area: pots;
+	}
+
+	#otros {
+		grid-row-start: otros;
+		grid-column-start: otros;
+		grid-row-end: otros;
+		grid-column-end: otros;
+
+		@media (max-width: 650px) {
+			grid-column-start: 1;
+			grid-column-end: span 3;
+		}
+	}
+}
+
+/*PRODUCTOS MD SIZE*/
+@media (max-width: 1160px) {
+	#bodyProductos {
+		grid-template-areas:"sign sign" "menu cactus" "menu sucus" "menu pots" "menu otros" "pie pie";
+		min-height: 100vh;
+		grid-template-rows: 3rem auto auto auto auto auto;
+		grid-template-columns: 1fr 3fr;
+
+	}
+
+	#otros {
+		.flexAsideFotos {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	#cactus,
+	#sucus,
+	#macetas {
+		margin: 1rem;
+		font-size: 2rem;
+	}
+}
+
+/*PRODUCTOS SM SIZE*/
+@media (max-width: 768px) {
+	#bodyProductos {
+		grid-template-areas: "sign""cactus""sucus""pots""otros""pie";
+		min-height: 100vh;
+		grid-template-rows: auto auto auto auto auto auto;
+		grid-template-columns: 1fr;
+
+		#cactus, #sucus,#macetas, #otros {
+			grid-column-start: 1;
+			grid-column-end: span 3;
+		}
+	}
+
+	
+}
+
+.fixedButton {
+	position: fixed;
+	top: 16rem;
+	left: 0rem;
+
+}
