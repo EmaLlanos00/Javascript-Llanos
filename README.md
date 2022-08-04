@@ -35,3 +35,5 @@ Me gustaría incorporar *javascript* en este sitio para llevar la simulación de
 - Revisón de todos los `alt="..."` de `img`
 - *1/08/22*
 - Primeros acercamientos al JS de la página: Simulación de carrito con prompt
+- *3/08/22*
+- Funciones de ordenamiento aplicadas correctamente a arrays de objetos
