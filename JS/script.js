@@ -2,140 +2,144 @@
 //----------Se pretende aplicar tipos de filtrado y mostrar los resultados como alerts
 
 class Plantas {
-    constructor (id, familia, genero, especie, price, size, sold){
+    constructor (familia, genero, especie, price, size, id,){
 
-    this.id = parseInt(id);              
+                  
     this.familia = familia;      
     this.genero = genero;       
     this.especie = especie;
     this.price = parseFloat(price);
     this.size = size;
-    this.sold = false;
+    this.id = id;
+    
 
+    }
+    asignarId(array){
+        this.id=array.length
     }
 }
 
 //------------Creado el constructor, procedemos a declarar y agregar contenido al array
-const arrayPlantas = [];
+const arrayPlantas = []
 
-arrayPlantas.push(new Plantas(1, 'cactaceae', 'astrophytum', 'asterias', 1150, 'N10'));
-arrayPlantas.push(new Plantas(2, 'cactaceae', 'gymnocalycium', 'erinaceum', 450, 'N8'));
-arrayPlantas.push(new Plantas(3, 'cactaceae', 'mammillaria', 'pectinifera', 2800, 'N8'));
-arrayPlantas.push(new Plantas(4, 'cactaceae', 'notocactus', 'submammulosus', 400, 'N10'));
-arrayPlantas.push(new Plantas(5, 'cactaceae', 'astrophytum', 'myriostigma', 300, 'N6'));
-arrayPlantas.push(new Plantas(6, 'cactaceae', 'ferocactus', 'latispinus', 270, 'N8'));
-arrayPlantas.push(new Plantas(7, 'crassulaceae', 'kalanchoe', 'pink butterfly', 400, 'N15'));
-arrayPlantas.push(new Plantas(8, 'crassulaceae', 'graptopetalum', 'superbum', 700, 'N16'));
-arrayPlantas.push(new Plantas(9, 'asphodelaceae', 'haworthiopsis', 'attenuata variegata', 3900, 'N22'));
-arrayPlantas.push(new Plantas(10, 'aizoaceae', 'titanopsis', 'calcarea', 400, 'N8'));
-arrayPlantas.push(new Plantas(11, 'asphodelaceae', 'haworthiopsis', 'marumiana', 300, 'N10'));
-arrayPlantas.push(new Plantas(12, 'crassulaceae', 'echeveria', 'red wine', 500, 'N8'));
+    arrayPlantas.push(new Plantas('cactaceae', 'astrophytum', 'asterias', 1150, 'N10', 1));
+    arrayPlantas.push(new Plantas('cactaceae', 'gymnocalycium', 'erinaceum', 450, 'N8', 2));
+    arrayPlantas.push(new Plantas('cactaceae', 'mammillaria', 'pectinifera', 2800, 'N8', 3));
+    arrayPlantas.push(new Plantas('cactaceae', 'notocactus', 'submammulosus', 400, 'N10', 4));
+    arrayPlantas.push(new Plantas('cactaceae', 'astrophytum', 'myriostigma', 300, 'N6', 5));
+    arrayPlantas.push(new Plantas('cactaceae', 'ferocactus', 'latispinus', 270, 'N8', 6));
+    arrayPlantas.push(new Plantas('crassulaceae', 'kalanchoe', 'pink butterfly', 400, 'N15', 7));
+    arrayPlantas.push(new Plantas('crassulaceae', 'graptopetalum', 'superbum', 700, 'N16', 8));
+    arrayPlantas.push(new Plantas('asphodelaceae', 'haworthiopsis', 'attenuata variegata', 3900, 'N22', 9));
+    arrayPlantas.push(new Plantas('aizoaceae', 'titanopsis', 'calcarea', 400, 'N8', 10));
+    arrayPlantas.push(new Plantas('asphodelaceae', 'haworthiopsis', 'marumiana', 300, 'N10', 11));
+    arrayPlantas.push(new Plantas('crassulaceae', 'echeveria', 'red wine', 500, 'N8', 12));
 
-/* console.log(arrayPlantas.findIndex( (element) => element.id === 8)); */
-
-let repeat = true;
-
-while(repeat){
-let mainChoice = prompt('Hola, elegí una opción' + '\n1. Ver todos los productos' + '\n2. Ver cactus' + '\n3. Ver suculentas' + '\n4. Filtrar por...' + '\n5. Salir');
-
-if(mainChoice == '1'){
-    const allPlants = arrayPlantas.slice(0, 12);
-    console.log(allPlants.length);
-    const namePlants = [];
-    for (const genero of allPlants){
-        namePlants.push([genero.genero + ' ' + genero.especie]);
+console.log(arrayPlantas)
+//---------------------creando más arrays
+class Macetas {
+    constructor (material, color, forma, size){
+        this.material = material;
+        this.color = color;
+        this.forma = forma;
+        this.size = size;
     }
-    alert(namePlants.join('\n'));
-    
-    repeat = false;
-}else if (mainChoice == '2') {
-    const allPlants = arrayPlantas.slice(0, 6);
-    console.log(allPlants.length);
-    const namePlants = [];
-    for (const genero of allPlants){
-        namePlants.push([genero.genero + ' ' + genero.especie]);
-    }
-    alert(namePlants.join('\n'));
-    
-    repeat = false;
-
-}else if (mainChoice == '3'){
-    const allPlants = arrayPlantas.slice(6, 12);
-    console.log(allPlants.length);
-    const namePlants = [];
-    for (const genero of allPlants){
-        namePlants.push([genero.genero + ' ' + genero.especie]);
-    }
-    alert(namePlants.join('\n'));
-    
-    repeat = false;
-
-}else if (mainChoice == '4'){
-    let sortChoice = prompt('Elegí cómo filtrar...' + '\n1. Mayor precio primero' + '\n2. Menor precio primero' + '\n3. Alfabético (A-Z)' + '\n4. Alfabético (Z-A)' + '\n5. Salir');
-
-    const sortArray = arrayPlantas.slice(0);
-    
-    console.log (sortArray.length);
-//NO PUDE HACER QUE FUNCIONE ESTA FUNCIÓN, NO ENCUENTRO EL ERROR
-    function sorting(sortChoice, sortArray) {
-        switch (sortChoice) {
-            case '1': 
-                return sortArray.sort((a, b) => b.price - a.price);
-            case '2':
-                return sortArray.sort((a, b) => a.price - b.price);
-            case '3':
-                let toZet = sortArray.sort((a, b) => a.genero.localeCompare(b.genero));
-                alert (toZet);
-                return toZet;
-            case '4':
-                let toA = sortArray.sort((a, b) => b.genero.localeCompare(a.genero));
-                alert (toA);
-                return toA;
-            case '5':
-                break;
-            default:
-               alert ('elegí un filtro');
-               break;
-        }
-    } repeat = false
-    
-}else if (mainChoice == '5'){
-    alert('Gracias por visitarnos :)')
-    repeat = false;
-}else{
-    repeat = true;
-}
-
 
 }
-//hice testeos con la función de sorting aislada pero no encontré el problema
-/* let sortChoice = prompt('Elegí cómo filtrar...' + '\n1. Mayor precio primero' + '\n2. Menor precio primero' + '\n3. Alfabético (A-Z)' + '\n4. Alfabético (Z-A)' + '\n5. Salir');
-
-const sortArray = arrayPlantas.slice(0);
-
-console.log ( sortArray.length );
-
-
-function sorting(sortChoice, sortArray) {
-    switch (sortChoice) {
+const arrayPots = []
+    arrayPots.push(new Macetas('plastica', 'decorada', 'redonda', 10));
+    arrayPots.push(new Macetas('ceramica', 'verde oscuro', 'buho', 12));
+    arrayPots.push(new Macetas('plastica', 'surtido', 'facetada', 10));
+    arrayPots.push(new Macetas('plastica', 'surtido', 'redonda', 10));
+    arrayPots.push(new Macetas('de barro', 'marron', 'cilindrica', 14));
+    arrayPots.push(new Macetas('ceramica', 'azul y blanco', 'bol', 20));
+//---------función para sorting de plantas
+function sorting(string, array) {
+    const sortArray = array.slice(0);
+    switch (string) {
         case '1': 
             return sortArray.sort((a, b) => b.price - a.price);
         case '2':
             return sortArray.sort((a, b) => a.price - b.price);
         case '3':
             let toZet = sortArray.sort((a, b) => a.genero.localeCompare(b.genero));
-            alert (toZet);
             return toZet;
         case '4':
             let toA = sortArray.sort((a, b) => b.genero.localeCompare(a.genero));
-            alert (toA);
             return toA;
-        case '5':
+        /* case '5':
             break;
         default:
-           alert ('elegí un filtro');
-           break;
+           alert ('elegí un filtro'); */
+           
     }
 }
+//----------función para mostrar el contenido
+function showItems (array){
+    let item = '';
+    array.forEach(element => { item += 'Nombre: ' + element.genero +' ' + element.especie + '\nPrecio: ' + element.price + '\n\n'
+        
+    });
+    return item;
+}
+//----------función para mostrar el contenido de MACETAS
+function showPots (array){
+    let item = '';
+    array.forEach(element =>{ item += 'Maceta/s: ' + element.material + '\nColor/es: ' + element.color + '\nForma: ' + element.forma + '\n\n'});
+    return item;
+}
 
-console.log (sorting()); */
+let repeat = true;
+
+while(repeat){
+let mainChoice = prompt('Hola, elegí una opción' + '\n1. Ver todos los productos' + '\n2. Ver cactus' + '\n3. Ver suculentas' + '\n4. Filtrar por...' +'\n5. Ver macetas' + '\n6. Salir');
+
+    if(mainChoice == '6'){
+        alert('Gracias por visitarnos :)')
+        repeat = false;
+    }else if (mainChoice == '1'){
+        const allPlants = arrayPlantas.slice(0, 12);
+        console.log(allPlants.length);
+        const namePlants = [];
+        for (const genero of allPlants){
+            namePlants.push([genero.genero + ' ' + genero.especie]);
+        }
+        alert(namePlants.join('\n'));
+        /* alert(showItems(allPlants)); */
+        repeat = false;
+    }else if (mainChoice == '2') {
+        const onlyCacti = arrayPlantas.slice(0, 6);
+       
+        alert(showItems(onlyCacti));
+        repeat = false;
+
+    }else if (mainChoice == '3'){
+        const onlySucculent = arrayPlantas.slice(6, 12);
+        
+        alert(showItems(onlySucculent));
+        repeat = false;
+
+    }else if (mainChoice == '4'){
+        
+        let sortChoice = prompt('Elegí cómo filtrar...' + '\n1. Mayor precio primero' + '\n2. Menor precio primero' + '\n3. Alfabético (A-Z)' + '\n4. Alfabético (Z-A)' + '\n5. Salir');
+       console.log(sortChoice)
+        if (sortChoice == '5'){
+            alert ('Volviendo al menú');
+            repeat = true
+        }else if (!(sortChoice == '1' || '2' || '3' || '4')){
+            alert ('Opción inválida')
+            repeat = true
+        }else if (sortChoice === '1' || '2' || '3' || '4'){
+        alert(showItems(sorting(sortChoice, arrayPlantas)));
+        repeat = false}
+    }       
+    else if(mainChoice == '5'){
+        const allPots = arrayPots.slice(0);
+        alert(showPots(allPots));
+        repeat = false;
+
+    }else {repeat = true}
+}
+
+
+
