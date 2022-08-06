@@ -67,10 +67,7 @@ function sorting(string, array) {
         case '4':
             let toA = sortArray.sort((a, b) => b.genero.localeCompare(a.genero));
             return toA;
-        /* case '5':
-            break;
-        default:
-           alert ('elegí un filtro'); */
+       
            
     }
 }
@@ -95,7 +92,7 @@ while(repeat){
 let mainChoice = prompt('Hola, elegí una opción' + '\n1. Ver todos los productos' + '\n2. Ver cactus' + '\n3. Ver suculentas' + '\n4. Filtrar por...' +'\n5. Ver macetas' + '\n6. Salir');
 
     if(mainChoice == '6'){
-        alert('Gracias por visitarnos :)')
+        /* alert('Gracias por visitarnos :)') */
         repeat = false;
     }else if (mainChoice == '1'){
         const allPlants = arrayPlantas.slice(0, 12);
@@ -105,7 +102,7 @@ let mainChoice = prompt('Hola, elegí una opción' + '\n1. Ver todos los product
             namePlants.push([genero.genero + ' ' + genero.especie]);
         }
         alert(namePlants.join('\n'));
-        /* alert(showItems(allPlants)); */
+
         repeat = false;
     }else if (mainChoice == '2') {
         const onlyCacti = arrayPlantas.slice(0, 6);
@@ -141,5 +138,44 @@ let mainChoice = prompt('Hola, elegí una opción' + '\n1. Ver todos los product
     }else {repeat = true}
 }
 
+//-----------------------INTERACCIÓN CON HTML: CREACIÓN DE MODALES POR PRODUCTO CON VARIABLES, DESDE EL JS---------------
+let cards = document.getElementsByClassName ('contentCard')
+let fotoCards = document.getElementsByClassName ('fotoCards')
+let cerrar = document.getElementById ('cerrar')
+let modal = document.getElementById('modalProductos');
+let flex = document.getElementById('flex');
+console.log (cards)
 
 
+window.addEventListener('click', function(e){
+    
+    if(e.target == cards[1] || fotoCards [1]){
+        modal.style.display = 'block';
+    }
+});
+
+window.addEventListener('click', function(e){
+    
+    if(e.target == cerrar){
+        modal.style.display = 'none';
+    }
+});
+window.addEventListener('click', function(e){
+    
+    if(e.target == flex){
+        modal.style.display = 'none';
+    }
+});
+let miniArray = arrayPlantas.slice(0,2)
+let containerP = document.getElementById('infoContainer')
+for (const planta of miniArray){
+    let lista = document.createElement('div');
+    lista.innerHTML = `<span>Nombre: ${planta.genero} ${planta.especie}</span><br>
+                        <span>Familia: ${planta.familia}</span><br>
+                        <span>Tamaño: ${planta.size}</span><br>
+                        <span>Precio: ${planta.price}</span>`;
+    containerP.appendChild(lista);
+}
+//Sol me voy a volver loco si tengo que hacer un modal por cada imagen, son como 25. Mi idea es tomar de los arrays la información para sobreescribir el DOM.
+//No sé si sea posible, pero no tiene sentido hacer un pedazo de código para cada producto en el html.
+//Es más, si pudiera poner el modal 100% desde JS lo haría, lo voy a intentar después...

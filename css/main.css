@@ -553,6 +553,79 @@ body {
   top: 16rem;
   left: 0rem; }
 
+.textos {
+  padding: 300px;
+  color: #fff;
+  text-align: center; }
+
+.flex {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); }
+
+.modalStuff {
+  position: relative;
+  background-color: #f5f5f5;
+  margin: auto;
+  width: 30%;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
+  animation-name: modal;
+  animation-duration: 1s;
+  border-radius: .7em; }
+
+@keyframes modal {
+  from {
+    top: -330px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }
+
+.close {
+  color: #CACACA;
+  font-size: 30px;
+  font-weight: bold; }
+  .close:hover {
+    color: #808080;
+    text-decoration: none;
+    cursor: pointer; }
+
+.modalTitulo {
+  padding: 8px 16px;
+  background: #ABFFD1;
+  color: #808080;
+  border-bottom: 1px solid #808080;
+  border-top-right-radius: .7em;
+  border-top-left-radius: .7em; }
+
+.modalBody {
+  padding: 20px 16px;
+  font-size: 1.5rem;
+  color: #808080; }
+
+@media screen and (max-width: 900px) {
+  .contenido-modal {
+    width: 70%; }
+  .textos {
+    padding: 150px; } }
+
+@media screen and (max-width: 500px) {
+  .textos {
+    padding: 50px; } }
+
 /*estilos de CARRITO*/
 #mainCarrito {
   width: 100%;

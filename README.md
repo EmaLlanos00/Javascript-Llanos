@@ -37,3 +37,5 @@ Me gustaría incorporar *javascript* en este sitio para llevar la simulación de
 - Primeros acercamientos al JS de la página: Simulación de carrito con prompt
 - *3/08/22*
 - Funciones de ordenamiento aplicadas correctamente a arrays de objetos
+- *5/08/22*
+- Interacción con HTML vía DOM. Eventos e info mostrada en HTML desde objetos(JS)
