@@ -1,6 +1,126 @@
-//----------Introducción: el propósito de este trabajo es realizar una simulación de un stock de una tienda de plantas.
-//----------Se pretende aplicar tipos de filtrado y mostrar los resultados como alerts
 
+//-----------------------INTERACCIÓN CON HTML: CREACIÓN DE MODALES POR PRODUCTO CON VARIABLES, DESDE EL JS---------------
+class Productos {
+    constructor(tipo, nombre, desc, size, precio, foto, stock){
+
+        this.tipo = tipo;
+        this.nombre = nombre;
+        this.desc = desc;
+        this.size = size;
+        this.precio = parseFloat(precio);
+        this.foto = foto;
+        this.stock = parseInt(stock);
+
+    }
+}
+const productosenVenta = [];
+    productosenVenta.push(new Productos('cactus', 'Astrophytum asterias', 'Cactus redondo de porte pequeño.', 'N10', 1150, '../img/plants/Astrophytum-asterias.jpg', 14));
+    productosenVenta.push(new Productos('cactus', 'Gymnocalycium erinaceum', 'Disponibles en maceta cuadrada.', 'N8', 450, '../img/plants/gymnocalycium-erinaceum.jpg', 38));
+    productosenVenta.push(new Productos('cactus', 'Mammilaria pectinifera', 'Ejemplar de colección.', 'N8', 2800, '../img/plants/mammillaria-pectinifera.jpg', 2));
+    productosenVenta.push(new Productos('cactus', 'Notocactus submammulosa', 'En oferta 2x700.', 'N10', 400, '../img/plants/Notocactus-submammulosa.jpg', 53));
+    productosenVenta.push(new Productos('cactus', 'Astrophytum myriostigma', 'Pequeño cactus sin espinas con forma de estrella.', 'N6', 300, '../img/plants/astrophytum-myriostigma.webp', 21));
+    productosenVenta.push(new Productos('cactus', 'Ferocactus latispinus', 'Pequeño pero peligroso!!', 'N8', 270, '../img/plants/ferocactus-latispinus.jpg', 34));
+    productosenVenta.push(new Productos('suculenta', 'Kalanchoe "pink butterfly"', 'Enormes.', 'N15', 400, '../img/plants/plantas 3.webp', 18));
+    productosenVenta.push(new Productos('suculenta', 'Graptopetalum superbum', 'Ejemplar único.', 'N16', 700, '../img/plants/graptopetalum-superbum.webp', 1));
+    productosenVenta.push(new Productos('suculenta', 'Hworthia attenuata variegata', 'Ejemplar de lujo.', 'N22', 3900, '../img/plants/haworthia-attenuata-var.webp', 3));
+    productosenVenta.push(new Productos('suculenta', 'Titanopsis calcarea', 'En maceta 8 colmada.', 'N8', 400, '../img/plants/titanopsis-calcarea.webp', 22));
+    productosenVenta.push(new Productos('suculenta', 'Haworthia marumiana', 'Con hijitos.', 'N10', 300, '../img/plants/Haworthia-Marumiana-var-Batesiana.webp', 8));
+    productosenVenta.push(new Productos('suculenta', 'Echeveria red wine', 'En maceta cuadrada.', 'N8', 500, '../img/plants/echeveria-red-wine.webp', 12));
+    productosenVenta.push(new Productos('maceta', 'Macetas decoradas', 'Con frases surtidas.', 'N6, 8, 10, 12 y 14', 90, '../img/miscellaneous/macetitas.webp', 1200));
+    productosenVenta.push(new Productos('maceta', 'Maceta búho', 'De cerámica, artesanal.', 'N12', 1500, '../img/miscellaneous/maceta-ceramica-buho.webp', 1));
+    productosenVenta.push(new Productos('maceta', 'Macetas facetadas', 'Colores varios.', 'N10', 60, '../img/miscellaneous/macetas-facetadas.webp', 2020));
+    productosenVenta.push(new Productos('maceta', 'Macetas plásticas n10', 'Colores surtidos.', 'N10', 50, '../img/miscellaneous/maceta-plastica-n10.webp', 3400));
+    productosenVenta.push(new Productos('maceta', 'Cilíndricas de barro', 'Hay varios tamaños, preguntar.', 'N10, 14, 18', 150, '../img/miscellaneous/macetas-barro-cilindro.webp', 30));
+    productosenVenta.push(new Productos('maceta', 'Cerámica bol', 'En color azul y rojo.', 'N15', 1300, '../img/miscellaneous/maceta-ceramica-2.webp', 2));
+
+let cards = document.getElementsByClassName ('contentCard');
+let fotoCards = document.querySelectorAll ('.shopCards img');
+let comprar = document.querySelectorAll ('.contentCard a');
+let flex
+let cerrar
+let divModal
+console.log (comprar);
+
+//-----función para abrir MODAL
+window.addEventListener('click', function(e){
+    console.log(e.target)
+    for(let i = 0; i<=cards.length; i++){
+
+        if(((e.target.parentNode == cards[i]) || (e.target == fotoCards[i]) || (e.target == cards[i])) && !(e.target == comprar[i])){
+            const prodFiltrado = productosenVenta.slice(i, i + 1); //<--Este "parche" es una genialidad, para que el for of no me repita el modal por cada elemento del array
+            console.log(productosenVenta)                         //saco una copia de array en cada iteración, saco la copia que necesite EN ESA iteración
+                                                                //Tal vez sea algo simple pero me salvó de querer abandonar este trabajo aprox
+                for (const producto of prodFiltrado){
+                let divModal = document.createElement('div');
+                divModal.id='box';
+                divModal.innerHTML = `<div id="modalProductos" class="modal">
+                <div class="flex" id="flex">
+                    <div class="modalStuff">
+                        <div class="modalTitulo flex">
+                            <h2>${producto.nombre}</h2>
+                            <span class="close" id="cerrar">&times;</span>
+                        </div>
+                        <div class="modalBody longCards1">
+                            <div class="card mb-3 w-100">
+                                <div class="row g-0">
+                                    <div class="col-md-6">
+                                        <img src="${producto.foto}" class="img-fluid rounded-start w-100" alt="cactus astrophytum asterias">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card-body">
+                                            <p class="bodyPageFont card-text" id="infoContainer">
+                                            <span>Tipo: ${producto.tipo}</span><br>
+                                            <span>Descripción: ${producto.desc}</span><br>
+                                            <span>Tamaño: ${producto.size}</span><br>
+                                            <span>Precio: $${producto.precio}</span> 
+                                            </p>
+                                            <button type="button" class="btn btn-success">COMPRAR</button>
+                                            <p class="card-text"><small class="text-muted">Stock: ${producto.stock}</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+                
+                document.body.appendChild(divModal); 
+                
+            } 
+        }
+                divModal = document.getElementById('box');
+                cerrar = document.getElementById ('cerrar');
+                flex = document.getElementById('flex');
+    }
+});
+
+//-------funciones que cierran el modal
+window.addEventListener('click', function(e){
+    
+    if(e.target == cerrar){
+       
+        divModal.remove();
+       
+    }
+});
+window.addEventListener('click', function(e){
+    
+    if(e.target == flex){
+        divModal.remove();
+        
+    }
+});
+//Esto es todo lo que quería lograr con respecto a eventos y DOM por ahora. Me gustaría hacer que pueda agregarle productos nuevos desde JS pero más adelante;
+//con Storage voy a hacer más funcionales los formularios y dejé una variable de "stock" como comodín para realizar simulaciones que se guarden de manera local.
+
+
+
+
+
+
+//--CÓDIGO VIEJO PARA POTENCIAL REUTILIZACIÓN: 
+//KEYWORDS: filtros, búsqueda, imputs(prompts)
 class Plantas {
     constructor (familia, genero, especie, price, size, id,){
 
@@ -35,7 +155,7 @@ const arrayPlantas = []
     arrayPlantas.push(new Plantas('asphodelaceae', 'haworthiopsis', 'marumiana', 300, 'N10', 11));
     arrayPlantas.push(new Plantas('crassulaceae', 'echeveria', 'red wine', 500, 'N8', 12));
 
-console.log(arrayPlantas)
+
 //---------------------creando más arrays
 class Macetas {
     constructor (material, color, forma, size){
@@ -86,7 +206,7 @@ function showPots (array){
     return item;
 }
 
-let repeat = true;
+let repeat = false;
 
 while(repeat){
 let mainChoice = prompt('Hola, elegí una opción' + '\n1. Ver todos los productos' + '\n2. Ver cactus' + '\n3. Ver suculentas' + '\n4. Filtrar por...' +'\n5. Ver macetas' + '\n6. Salir');
@@ -137,45 +257,3 @@ let mainChoice = prompt('Hola, elegí una opción' + '\n1. Ver todos los product
 
     }else {repeat = true}
 }
-
-//-----------------------INTERACCIÓN CON HTML: CREACIÓN DE MODALES POR PRODUCTO CON VARIABLES, DESDE EL JS---------------
-let cards = document.getElementsByClassName ('contentCard')
-let fotoCards = document.getElementsByClassName ('fotoCards')
-let cerrar = document.getElementById ('cerrar')
-let modal = document.getElementById('modalProductos');
-let flex = document.getElementById('flex');
-console.log (cards)
-
-
-window.addEventListener('click', function(e){
-    
-    if(e.target == cards[1] || fotoCards [1]){
-        modal.style.display = 'block';
-    }
-});
-
-window.addEventListener('click', function(e){
-    
-    if(e.target == cerrar){
-        modal.style.display = 'none';
-    }
-});
-window.addEventListener('click', function(e){
-    
-    if(e.target == flex){
-        modal.style.display = 'none';
-    }
-});
-let miniArray = arrayPlantas.slice(0,2)
-let containerP = document.getElementById('infoContainer')
-for (const planta of miniArray){
-    let lista = document.createElement('div');
-    lista.innerHTML = `<span>Nombre: ${planta.genero} ${planta.especie}</span><br>
-                        <span>Familia: ${planta.familia}</span><br>
-                        <span>Tamaño: ${planta.size}</span><br>
-                        <span>Precio: ${planta.price}</span>`;
-    containerP.appendChild(lista);
-}
-//Sol me voy a volver loco si tengo que hacer un modal por cada imagen, son como 25. Mi idea es tomar de los arrays la información para sobreescribir el DOM.
-//No sé si sea posible, pero no tiene sentido hacer un pedazo de código para cada producto en el html.
-//Es más, si pudiera poner el modal 100% desde JS lo haría, lo voy a intentar después...

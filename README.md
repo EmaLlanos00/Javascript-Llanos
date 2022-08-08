@@ -39,3 +39,6 @@ Me gustaría incorporar *javascript* en este sitio para llevar la simulación de
 - Funciones de ordenamiento aplicadas correctamente a arrays de objetos
 - *5/08/22*
 - Interacción con HTML vía DOM. Eventos e info mostrada en HTML desde objetos(JS)
+- *8/08/22*
+- Modales variables según array de productos
+- El evento sucede en el área esperada: todo el card excepto el botón "comprar"
