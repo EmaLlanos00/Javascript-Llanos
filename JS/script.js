@@ -1,4 +1,3 @@
-
 //-----------------------INTERACCIÓN CON HTML: CREACIÓN DE MODALES POR PRODUCTO CON VARIABLES, DESDE EL JS---------------
 class Productos {
     constructor(tipo, nombre, desc, size, precio, foto, stock){
@@ -47,9 +46,9 @@ window.addEventListener('click', function(e){
     for(let i = 0; i<=cards.length; i++){
 
         if(((e.target.parentNode == cards[i]) || (e.target == fotoCards[i]) || (e.target == cards[i])) && !(e.target == comprar[i])){
-            const prodFiltrado = productosenVenta.slice(i, i + 1); //<--Este "parche" es una genialidad, para que el for of no me repita el modal por cada elemento del array
-            console.log(productosenVenta)                         //saco una copia de array en cada iteración, saco la copia que necesite EN ESA iteración
-                                                                //Tal vez sea algo simple pero me salvó de querer abandonar este trabajo aprox
+            const prodFiltrado = productosenVenta.slice(i, i + 1); 
+            console.log(productosenVenta)                         
+                                                                
                 for (const producto of prodFiltrado){
                 let divModal = document.createElement('div');
                 divModal.id='box';
@@ -111,8 +110,131 @@ window.addEventListener('click', function(e){
         
     }
 });
-//Esto es todo lo que quería lograr con respecto a eventos y DOM por ahora. Me gustaría hacer que pueda agregarle productos nuevos desde JS pero más adelante;
-//con Storage voy a hacer más funcionales los formularios y dejé una variable de "stock" como comodín para realizar simulaciones que se guarden de manera local.
+
+//------------------------GUARDAR INFORMACIÓN DE FORMULARIOS: CREACIÓN DE CUENTA, HABILITAR COMPRAR SI CUENTA EXISTE---------
+//armando las funciones y variables pertinentes
+let nombreForm
+let apellidoForm 
+let passForm
+let passCheckForm 
+let emailForm 
+let phoneForm 
+let btnDelete = document.getElementById('btnDelete')
+let carritoPage = document.querySelector('#mainCarrito');
+let cuentaPage = document.querySelector('#cuentaHeader');
+let submitButton = document.getElementById('submitBtn');
+let unlockCarrito = false;
+console.log(unlockCarrito)
+
+  
+localStorage.setItem('nombre','algunNombre');
+
+function saveData(){
+    sessionStorage.setItem('nombreForm', document.getElementById('cuentaNombre').value);
+    sessionStorage.setItem('apellidoForm', document.getElementById('cuentaApellido').value);
+    sessionStorage.setItem('passForm', document.getElementById('cuentaPass').value);
+    sessionStorage.setItem('passCheckForm', document.getElementById('cuentaPassCheck').value);
+    sessionStorage.setItem('emailForm', document.getElementById('cuentaEmail').value);
+    sessionStorage.setItem('phoneForm', document.getElementById('cuentaPhone').value); 
+    
+    
+}
+function fromStorage(){
+    nombreForm =  sessionStorage.getItem('nombreForm');
+    apellidoForm = sessionStorage.getItem('apellidoForm');
+    passForm = sessionStorage.getItem('passForm');
+    passCheckForm = sessionStorage.getItem('passCheckForm');
+    emailForm = sessionStorage.getItem('emailForm');
+    phoneForm = sessionStorage.getItem('phoneForm');
+    unlockCarrito = sessionStorage.getItem('unlockCarrito');
+    console.log(passCheckForm);
+    
+}
+//----funciones de borrado
+function deleteAllData(storage) {
+    storage.clear();
+}
+
+function deleteOnlyOne(key, storage) {
+    storage.removeItem(key);
+}
+
+//----------bloqueo de CARRITO si cuenta no existe, guardado y obtención de datos de STORAGE
+window.addEventListener('click', function(e){
+    
+    if(e.target == submitButton){
+        saveData();
+        fromStorage();
+        if((passForm.length == 0) || (nombreForm.length == 0) || (apellidoForm.length == 0) || (emailForm.length == 0)){
+            alert('No ingresaste suficientes datos');
+        }else if(passForm != passCheckForm){
+            alert('Las contraseñas deben coincidir');
+            sessionStorage.removeItem('passForm');
+            sessionStorage.removeItem('passCheckForm');
+        }else{
+            sessionStorage.setItem('unlockCarrito', 'true');
+            console.log(unlockCarrito);
+            alert('Cuenta creada con éxito!!');
+            
+        }
+    }
+});
+
+   
+//-----------MODIFICAR PÁGINA DE CUENTA
+unlockCarrito = (sessionStorage.getItem('unlockCarrito') == 'true');   
+console.log(unlockCarrito)
+if(unlockCarrito){
+
+    let sectionCuenta = document.createElement('div');
+    cuentaPage.innerHTML = '';
+    sectionCuenta.id='sectionCuenta';
+    sectionCuenta.classList.add("container-fluid");
+    sectionCuenta.classList.add("cartelFondo2");
+    sectionCuenta.classList.add("objCentred");
+    sectionCuenta.innerHTML = 
+    `<div class="cartelCarro">
+        <h2>Hola ${sessionStorage.getItem('nombreForm')}, bienvenido/a. Podés retomar o realizar compras sin problemas yendo <a href="productos.html">aqui</a>.</h2>
+        <button id="btnDelete" type="button" class="btn btn-success mb-2">CERRAR SESIÓN</button>
+    </div>`;
+            
+    cuentaPage.appendChild(sectionCuenta);  
+         
+} 
+//----BORRAR STORAGE, POR ALGUNA RAZÓN NO FUNCIONA DESDE EL DOM, UTILICÉ EL BOTON "BUSCAR" DEL NAVBAR PROVISORIAMENTE
+btnDelete?.addEventListener('click', () => {
+    deleteAllData(sessionStorage);
+}) 
+ //ESTO SE CREA EN CARRITO SI CUENTA NO EXISTE
+    if(!unlockCarrito){
+
+        let divCarrito = document.createElement('div');
+        divCarrito.id='lock';
+        divCarrito.classList.add("stopScrolling");
+        divCarrito.innerHTML = `<div id="modalProductos" class="modal">
+                                <div class="flex" id="flex">
+                                    <div class="modalStuff">
+                                        <div class="modalTitulo flex">
+                                            <h2>Para comprar necesitás una cuenta</h2>
+                                        </div>
+                                        <div class="modalBody longCards1">
+                                            <div class="card mb-3 w-100">
+                                                <div class="row g-0 p-3">
+                                                    <div class="text-center d-flex flex-wrap justify-content-around">
+                                                    <p>Para comprar en la página necesitás una cuenta. Es rápido y vas a poder retomar tu compra cuando quieras.</p>
+                                                    <a href="cuenta.html" type="button" class="btn btn-success mb-2">CREAR CUENTA</a>
+                                                    <a href="cuenta.html" type="button" class="btn btn-success mb-2">INICIAR SESIÓN</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+                
+        carritoPage.parentNode.appendChild(divCarrito);        
+    } 
+
 
 
 
@@ -257,3 +379,4 @@ let mainChoice = prompt('Hola, elegí una opción' + '\n1. Ver todos los product
 
     }else {repeat = true}
 }
+

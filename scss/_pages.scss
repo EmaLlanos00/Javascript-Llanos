@@ -14,6 +14,11 @@
 		width: 50% !important;
 	}
 }
+/*detener scroll de modal*/
+.stopScrolling {
+    height: 100%;
+    overflow: hidden;
+}
 /*estilos de BLOG*/
 #mainAboutUs{
 	h2 {

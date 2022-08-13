@@ -42,3 +42,6 @@ Me gustaría incorporar *javascript* en este sitio para llevar la simulación de
 - *8/08/22*
 - Modales variables según array de productos
 - El evento sucede en el área esperada: todo el card excepto el botón "comprar"
+- *12/08/22*
+- Obtención de datos de formularios, guardado en storage, obtención de éstos
+- Bloqueo de página carrito si no existe cuenta creada

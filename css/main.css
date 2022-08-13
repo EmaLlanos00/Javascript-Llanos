@@ -168,6 +168,9 @@ ul li a {
     @media (max-width: 1000px) {
       .cartelFondo0 .cartelCarro, .cartelFondo1 .cartelCarro, .cartelFondo2 .cartelCarro {
         width: 80% !important; } }
+    @media (max-width: 450px) {
+      .cartelFondo0 .cartelCarro, .cartelFondo1 .cartelCarro, .cartelFondo2 .cartelCarro {
+        font-size: 1.8rem; } }
 
 /* estilos de SCROLL para motores Webkit y blink (Chrome, Safari, Opera... )*/
 body::-webkit-scrollbar {
@@ -639,6 +642,11 @@ body {
   background-image: url(../img/plants/plantas4.webp); }
   .cartelFondo1 .cartelCarro {
     width: 50% !important; }
+
+/*detener scroll de modal*/
+.stopScrolling {
+  height: 100%;
+  overflow: hidden; }
 
 /*estilos de BLOG*/
 #mainAboutUs h2 {

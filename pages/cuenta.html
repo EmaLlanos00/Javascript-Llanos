@@ -50,7 +50,7 @@
 				</ul>
 				<form class="d-flex" role="search">
 				<input class="form-control me-2 formFix" type="search" placeholder="Buscá algo..." aria-label="Search">
-				<button class="btn btn-outline-success formFix" type="submit">Buscar</button>
+				<button id="btnDelete" class="btn btn-outline-success formFix" type="submit">Buscar</button>
 				</form>
 			</div>
 			</div>
@@ -60,7 +60,7 @@
 	</div>
 	<!--finaliza nav y cartel procional-->
 	<!--inicia cartel grande-->
-	<div class="objCentred">
+	<div class="objCentred" id="cuentaHeader">
 		<section class="container-fluid cartelFondo2 objCentred">
 			<h2 class="cartelCarro">Para comprar en la página necesitás una cuenta. Es rápido y vas a poder retomar tu compra cuando quieras.</h2>
 		</section>
@@ -73,16 +73,16 @@
 						<div class="row register-form">
 									<div class="col-md-6">
 												<div class="form-group">
-													<input type="text" class="form-control" placeholder="Nombre" value="" />
+													<input id="cuentaNombre" type="text" class="form-control" placeholder="Nombre" value="" />
 												</div>
 												<div class="form-group">
-													<input type="text" class="form-control" placeholder="Apellido" value="" />
+													<input id="cuentaApellido" type="text" class="form-control" placeholder="Apellido" value="" />
 												</div>
 												<div class="form-group">
-													<input type="password" class="form-control" placeholder="Contraseña" value="" />
+													<input id="cuentaPass" type="password" class="form-control" placeholder="Contraseña" value="" />
 												</div>
 												<div class="form-group">
-													<input type="password" class="form-control"  placeholder="Repetir contraseña" value="" />
+													<input id="cuentaPassCheck" type="password" class="form-control"  placeholder="Repetir contraseña" value="" />
 												</div>
 												<div class="mb-3 form-check text-start">
 													<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -91,10 +91,10 @@
 									</div>
 									<div class="col-md-6">
 												<div class="form-group">
-													<input type="email" class="form-control" placeholder="Correo" value="" />
+													<input id="cuentaEmail" type="email" class="form-control" placeholder="Correo" value="" />
 												</div>
 												<div class="form-group">
-													<input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Teléfono" value="" />
+													<input id="cuentaPhone" type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Teléfono" value="" />
 												</div>
 												<div class="form-group">
 													<select class="form-control">
@@ -107,7 +107,7 @@
 												<div class="form-group">
 													<input type="text" class="form-control" placeholder="Dirección" value="" />
 												</div>
-												<input type="submit" class="btn btn-primary fs-4"  value="Registrarse"/>
+												<input id="submitBtn" type="submit" class="btn btn-primary fs-4"  value="Registrarse" onclick="location.reload()" />
 									</div>
 						</div>
 					</div>
@@ -196,5 +196,6 @@
 	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	<script src="../JS/script.js"></script>
 </body>
 </html>

@@ -209,7 +209,9 @@ ul {
 		@media (max-width: 1000px) {
 			width: 80% !important;
 		}
-
+    @media (max-width: 450px) {
+			font-size: 1.8rem;
+		}
 	}
 }
 
