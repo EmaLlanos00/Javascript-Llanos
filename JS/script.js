@@ -1,6 +1,6 @@
 //-----------------------INTERACCIÓN CON HTML: CREACIÓN DE MODALES POR PRODUCTO CON VARIABLES, DESDE EL JS---------------
 class Productos {
-    constructor(tipo, nombre, desc, size, precio, foto, stock){
+    constructor(tipo, nombre, desc, size, precio, foto, stock, id){
 
         this.tipo = tipo;
         this.nombre = nombre;
@@ -9,38 +9,116 @@ class Productos {
         this.precio = parseFloat(precio);
         this.foto = foto;
         this.stock = parseInt(stock);
+        this.id = id;
 
     }
 }
 const productosenVenta = [];
-    productosenVenta.push(new Productos('cactus', 'Astrophytum asterias', 'Cactus redondo de porte pequeño.', 'N10', 1150, '../img/plants/Astrophytum-asterias.jpg', 14));
-    productosenVenta.push(new Productos('cactus', 'Gymnocalycium erinaceum', 'Disponibles en maceta cuadrada.', 'N8', 450, '../img/plants/gymnocalycium-erinaceum.jpg', 38));
-    productosenVenta.push(new Productos('cactus', 'Mammilaria pectinifera', 'Ejemplar de colección.', 'N8', 2800, '../img/plants/mammillaria-pectinifera.jpg', 2));
-    productosenVenta.push(new Productos('cactus', 'Notocactus submammulosa', 'En oferta 2x700.', 'N10', 400, '../img/plants/Notocactus-submammulosa.jpg', 53));
-    productosenVenta.push(new Productos('cactus', 'Astrophytum myriostigma', 'Pequeño cactus sin espinas con forma de estrella.', 'N6', 300, '../img/plants/astrophytum-myriostigma.webp', 21));
-    productosenVenta.push(new Productos('cactus', 'Ferocactus latispinus', 'Pequeño pero peligroso!!', 'N8', 270, '../img/plants/ferocactus-latispinus.jpg', 34));
-    productosenVenta.push(new Productos('suculenta', 'Kalanchoe "pink butterfly"', 'Enormes.', 'N15', 400, '../img/plants/plantas 3.webp', 18));
-    productosenVenta.push(new Productos('suculenta', 'Graptopetalum superbum', 'Ejemplar único.', 'N16', 700, '../img/plants/graptopetalum-superbum.webp', 1));
-    productosenVenta.push(new Productos('suculenta', 'Hworthia attenuata variegata', 'Ejemplar de lujo.', 'N22', 3900, '../img/plants/haworthia-attenuata-var.webp', 3));
-    productosenVenta.push(new Productos('suculenta', 'Titanopsis calcarea', 'En maceta 8 colmada.', 'N8', 400, '../img/plants/titanopsis-calcarea.webp', 22));
-    productosenVenta.push(new Productos('suculenta', 'Haworthia marumiana', 'Con hijitos.', 'N10', 300, '../img/plants/Haworthia-Marumiana-var-Batesiana.webp', 8));
-    productosenVenta.push(new Productos('suculenta', 'Echeveria red wine', 'En maceta cuadrada.', 'N8', 500, '../img/plants/echeveria-red-wine.webp', 12));
-    productosenVenta.push(new Productos('maceta', 'Macetas decoradas', 'Con frases surtidas.', 'N6, 8, 10, 12 y 14', 90, '../img/miscellaneous/macetitas.webp', 1200));
-    productosenVenta.push(new Productos('maceta', 'Maceta búho', 'De cerámica, artesanal.', 'N12', 1500, '../img/miscellaneous/maceta-ceramica-buho.webp', 1));
-    productosenVenta.push(new Productos('maceta', 'Macetas facetadas', 'Colores varios.', 'N10', 60, '../img/miscellaneous/macetas-facetadas.webp', 2020));
-    productosenVenta.push(new Productos('maceta', 'Macetas plásticas n10', 'Colores surtidos.', 'N10', 50, '../img/miscellaneous/maceta-plastica-n10.webp', 3400));
-    productosenVenta.push(new Productos('maceta', 'Cilíndricas de barro', 'Hay varios tamaños, preguntar.', 'N10, 14, 18', 150, '../img/miscellaneous/macetas-barro-cilindro.webp', 30));
-    productosenVenta.push(new Productos('maceta', 'Cerámica bol', 'En color azul y rojo.', 'N15', 1300, '../img/miscellaneous/maceta-ceramica-2.webp', 2));
+productosenVenta.push(new Productos('cactus', 'Astrophytum asterias', 'Cactus redondo de porte pequeño.', 'N10', 1150, '../img/plants/Astrophytum-asterias.jpg', 14, 01));
+productosenVenta.push(new Productos('cactus', 'Gymnocalycium erinaceum', 'Disponibles en maceta cuadrada.', 'N8', 450, '../img/plants/gymnocalycium-erinaceum.jpg', 38, 02));
+productosenVenta.push(new Productos('cactus', 'Mammilaria pectinifera', 'Ejemplar de colección.', 'N8', 2800, '../img/plants/mammillaria-pectinifera.jpg', 2, 03));
+productosenVenta.push(new Productos('cactus', 'Notocactus submammulosa', 'En oferta 2x700.', 'N10', 400, '../img/plants/Notocactus-submammulosa.jpg', 53, 04));
+productosenVenta.push(new Productos('cactus', 'Astrophytum myriostigma', 'Pequeño cactus sin espinas con forma de estrella.', 'N6', 300, '../img/plants/astrophytum-myriostigma.webp', 21, 05));
+productosenVenta.push(new Productos('cactus', 'Ferocactus latispinus', 'Pequeño pero peligroso!!', 'N8', 270, '../img/plants/ferocactus-latispinus.jpg', 34, 06));
+productosenVenta.push(new Productos('suculenta', 'Kalanchoe "pink butterfly"', 'Enormes.', 'N15', 400, '../img/plants/plantas 3.webp', 18, 07));
+productosenVenta.push(new Productos('suculenta', 'Graptopetalum superbum', 'Ejemplar único.', 'N16', 700, '../img/plants/graptopetalum-superbum.webp', 1, 08));
+productosenVenta.push(new Productos('suculenta', 'Hworthia attenuata variegata', 'Ejemplar de lujo.', 'N22', 3900, '../img/plants/haworthia-attenuata-var.webp', 3, 09));
+productosenVenta.push(new Productos('suculenta', 'Titanopsis calcarea', 'En maceta 8 colmada.', 'N8', 400, '../img/plants/titanopsis-calcarea.webp', 22, 10));
+productosenVenta.push(new Productos('suculenta', 'Haworthia marumiana', 'Con hijitos.', 'N10', 300, '../img/plants/Haworthia-Marumiana-var-Batesiana.webp', 8, 11));
+productosenVenta.push(new Productos('suculenta', 'Echeveria red wine', 'En maceta cuadrada.', 'N8', 500, '../img/plants/echeveria-red-wine.webp', 12, 12));
+productosenVenta.push(new Productos('maceta', 'Macetas decoradas', 'Con frases surtidas.', 'N6, 8, 10, 12 y 14', 90, '../img/miscellaneous/macetitas.webp', 1200, 13));
+productosenVenta.push(new Productos('maceta', 'Maceta búho', 'De cerámica, artesanal.', 'N12', 1500, '../img/miscellaneous/maceta-ceramica-buho.webp', 1, 14));
+productosenVenta.push(new Productos('maceta', 'Macetas facetadas', 'Colores varios.', 'N10', 60, '../img/miscellaneous/macetas-facetadas.webp', 2020, 15));
+productosenVenta.push(new Productos('maceta', 'Macetas plásticas n10', 'Colores surtidos.', 'N10', 50, '../img/miscellaneous/maceta-plastica-n10.webp', 3400, 16));
+productosenVenta.push(new Productos('maceta', 'Cilíndricas de barro', 'Hay varios tamaños, preguntar.', 'N10, 14, 18', 150, '../img/miscellaneous/macetas-barro-cilindro.webp', 30, 17));
+productosenVenta.push(new Productos('maceta', 'Cerámica bol', 'En color azul y rojo.', 'N15', 1300, '../img/miscellaneous/maceta-ceramica-2.webp', 2, 18));
+productosenVenta.push(new Productos('suculenta', 'Crassula Ovata', 'Ideal para principiantes', 'N10', 150, '../img/plants/crassula-ovata.webp', 47, 19));
+productosenVenta.push(new Productos('suculenta', 'Echeveria Laui', 'Hermoso ejemplar de colección', 'N10', 1200, '../img/plants/echeveria-laui.webp', 7, 20));
 
 let cards = document.getElementsByClassName ('contentCard');
-let fotoCards = document.querySelectorAll ('.shopCards img');
-let comprar = document.querySelectorAll ('.contentCard a');
+let productos = document.getElementById ('productGalery');
 let flex
 let cerrar
 let divModal
-console.log (comprar);
 
-//-----función para abrir MODAL
+let carritoItems = document.getElementById('carritoItems');
+const carritoLista = [];
+
+//------función para imprimir los productos del array en la página PRODUCTOS
+productosenVenta.forEach((producto) =>{
+    let divItems = document.createElement('div');
+    divItems.classList.add('shopCards');
+    divItems.innerHTML=
+    `<div class="fotoCards">
+        <img src="${producto.foto}" alt="foto ${producto.nombre}">
+    </div>
+    <div class="contentCard">
+        <h3>${producto.nombre}</h3>
+        <p>${producto.desc}</p>
+        <p>$${producto.precio}</p>
+        <button id="item${producto.id}">Comprar</button>
+    </div>`
+    productos?.appendChild(divItems);
+    let buyThisItem = document.getElementById(`item${producto.id}`);
+    buyThisItem?.addEventListener('click', () => {
+        addToCart (producto.id);
+       
+        sessionStorage.setItem('cartHasItems', true)
+    })
+   
+})
+
+//------------------lista de CARRITO  (array)
+const addToCart = (idProd) => { 
+    let item = productosenVenta.find((productos) => productos.id === idProd)
+    carritoLista.push(item);
+    sessionStorage.setItem('listaDeProductos', JSON.stringify(carritoLista))
+    console.log(carritoLista);
+}
+ 
+//-------funcion para agregar contenido al carrito
+
+
+let cartHasItems = (sessionStorage.getItem('cartHasItems') == 'true')
+console.log(cartHasItems)
+if(cartHasItems && carritoItems != null){
+    const fillingCart = () => {
+        let cartFromStorage = JSON.parse(sessionStorage.getItem('listaDeProductos'));
+        console.log(cartFromStorage);
+        carritoItems.innerHTML= '';
+        cartFromStorage.forEach((producto) =>{
+            let carritoItem = document.createElement('div');
+            carritoItem.innerHTML =
+                                `<article class="longCards1">
+                                <div class="card mb-3 w-100">
+                                    <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="${producto.foto}" class="img-fluid rounded-start w-100" alt="foto ${producto.nombre}">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title bodyPageFont"><strong>${producto.nombre}</strong></h5>
+                                            <p class="bodyPageFont card-text">${producto.desc}</p>
+                                            <p class="bodyPageFont card-text">${producto.precio}</p>
+                                            <p class="card-text"><small class="text-muted">${producto.stock}</small></p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </article>`;
+                    
+            carritoItems.appendChild(carritoItem);   
+             
+        })
+        sessionStorage.setItem('listaDeProductos', JSON.stringify(cartFromStorage))
+    }  
+    console.log(fillingCart())
+}
+
+
+let fotoCards = document.querySelectorAll ('.shopCards img');
+let comprar = document.querySelectorAll ('.contentCard button');
+//-----función para abrir y cerrar MODAL
 window.addEventListener('click', function(e){
     console.log(e.target)
     for(let i = 0; i<=cards.length; i++){
@@ -63,13 +141,13 @@ window.addEventListener('click', function(e){
                             <div class="card mb-3 w-100">
                                 <div class="row g-0">
                                     <div class="col-md-6">
-                                        <img src="${producto.foto}" class="img-fluid rounded-start w-100" alt="cactus astrophytum asterias">
+                                        <img src="${producto.foto}" class="img-fluid rounded-start w-100" alt="foto ${producto.nombre}">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="card-body">
                                             <p class="bodyPageFont card-text" id="infoContainer">
                                             <span>Tipo: ${producto.tipo}</span><br>
-                                            <span>Descripción: ${producto.desc}</span><br>
+                                            <span>Descripción: ${producto.nombre}</span><br>
                                             <span>Tamaño: ${producto.size}</span><br>
                                             <span>Precio: $${producto.precio}</span> 
                                             </p>
@@ -87,27 +165,13 @@ window.addEventListener('click', function(e){
                 document.body.appendChild(divModal); 
                 
             } 
+            divModal = document.getElementById('box');
+            cerrar = document.getElementById ('cerrar');
+            flex = document.getElementById('flex');
+        }else if((e.target == cerrar) || (e.target == flex)){//CERRANDO MODAL SI SE TOCA "X" Y LA PANTALLA
+            divModal.remove();
         }
-                divModal = document.getElementById('box');
-                cerrar = document.getElementById ('cerrar');
-                flex = document.getElementById('flex');
-    }
-});
-
-//-------funciones que cierran el modal
-window.addEventListener('click', function(e){
-    
-    if(e.target == cerrar){
-       
-        divModal.remove();
-       
-    }
-});
-window.addEventListener('click', function(e){
-    
-    if(e.target == flex){
-        divModal.remove();
-        
+                
     }
 });
 
@@ -118,39 +182,44 @@ let apellidoForm
 let passForm
 let passCheckForm 
 let emailForm 
-let phoneForm 
-let btnDelete = document.getElementById('btnDelete')
+let phoneForm
+let selectForm
 let carritoPage = document.querySelector('#mainCarrito');
 let cuentaPage = document.querySelector('#cuentaHeader');
+let ingresarCuentaBtn = document.getElementById('btnIngresarCuenta');
 let submitButton = document.getElementById('submitBtn');
 let unlockCarrito = false;
-console.log(unlockCarrito)
 
-  
-localStorage.setItem('nombre','algunNombre');
-
-function saveData(){
-    sessionStorage.setItem('nombreForm', document.getElementById('cuentaNombre').value);
-    sessionStorage.setItem('apellidoForm', document.getElementById('cuentaApellido').value);
-    sessionStorage.setItem('passForm', document.getElementById('cuentaPass').value);
-    sessionStorage.setItem('passCheckForm', document.getElementById('cuentaPassCheck').value);
-    sessionStorage.setItem('emailForm', document.getElementById('cuentaEmail').value);
-    sessionStorage.setItem('phoneForm', document.getElementById('cuentaPhone').value); 
+//----------------------------------------------------------------------------------------funciones de GUARDADO
+function saveData(storage){
+    storage.setItem('nombreForm', document.getElementById('cuentaNombre').value);
+    storage.setItem('apellidoForm', document.getElementById('cuentaApellido').value);
+    storage.setItem('passForm', document.getElementById('cuentaPass').value);
+    storage.setItem('passCheckForm', document.getElementById('cuentaPassCheck').value);
+    storage.setItem('emailForm', document.getElementById('cuentaEmail').value);
+    storage.setItem('phoneForm', document.getElementById('cuentaPhone').value); 
+    storage.setItem('selectForm', document.getElementById('selectForm').value);
     
     
 }
-function fromStorage(){
-    nombreForm =  sessionStorage.getItem('nombreForm');
-    apellidoForm = sessionStorage.getItem('apellidoForm');
-    passForm = sessionStorage.getItem('passForm');
-    passCheckForm = sessionStorage.getItem('passCheckForm');
-    emailForm = sessionStorage.getItem('emailForm');
-    phoneForm = sessionStorage.getItem('phoneForm');
-    unlockCarrito = sessionStorage.getItem('unlockCarrito');
+function fromStorage(storage){
+    nombreForm =  storage.getItem('nombreForm');
+    apellidoForm = storage.getItem('apellidoForm');
+    passForm = storage.getItem('passForm');
+    passCheckForm = storage.getItem('passCheckForm');
+    emailForm = storage.getItem('emailForm');
+    phoneForm = storage.getItem('phoneForm');
+    selectForm = storage.getItem('selectForm');
     console.log(passCheckForm);
     
 }
-//----funciones de borrado
+function obtainNSave(storage){ saveData(storage); fromStorage(storage);}
+
+function saveBoth (){
+    obtainNSave(localStorage);
+    obtainNSave(sessionStorage);
+}
+//----------------------------------------------------------------------------------funciones de BORRADO
 function deleteAllData(storage) {
     storage.clear();
 }
@@ -159,88 +228,106 @@ function deleteOnlyOne(key, storage) {
     storage.removeItem(key);
 }
 
-//----------bloqueo de CARRITO si cuenta no existe, guardado y obtención de datos de STORAGE
+//---------------------------------------------------------------------bloqueo de CARRITO si cuenta no existe, guardado y obtención de datos de STORAGE
 window.addEventListener('click', function(e){
     
     if(e.target == submitButton){
-        saveData();
-        fromStorage();
+        let recordarForm = document.getElementById('exampleCheck1').checked;
+        console.log(recordarForm);
+        recordarForm ? saveBoth() : obtainNSave(sessionStorage);
         if((passForm.length == 0) || (nombreForm.length == 0) || (apellidoForm.length == 0) || (emailForm.length == 0)){
             alert('No ingresaste suficientes datos');
         }else if(passForm != passCheckForm){
             alert('Las contraseñas deben coincidir');
-            sessionStorage.removeItem('passForm');
-            sessionStorage.removeItem('passCheckForm');
+            deleteOnlyOne(passForm, recordarForm ? localStorage : sessionStorage)
+            deleteOnlyOne(passCheckForm, recordarForm ? localStorage : sessionStorage)
         }else{
             sessionStorage.setItem('unlockCarrito', 'true');
             console.log(unlockCarrito);
             alert('Cuenta creada con éxito!!');
             
         }
+    }else if(e.target == ingresarCuentaBtn){
+        let correoIngresar = document.getElementById('email2').value;
+        let contrasenaIngresar = document.getElementById('pass2').value;
+        let emailStorage = localStorage.getItem('emailForm');
+        let contrasenaStorage = localStorage.getItem('passForm');
+        if(correoIngresar == emailStorage && contrasenaIngresar == contrasenaStorage){
+            sessionStorage.setItem('unlockCarrito', 'true');
+            alert('ingreso exitoso');
+        }
     }
 });
 
    
-//-----------MODIFICAR PÁGINA DE CUENTA
-unlockCarrito = (sessionStorage.getItem('unlockCarrito') == 'true');   
-console.log(unlockCarrito)
-if(unlockCarrito){
+//----------------------------------------------------------------------MODIFICAR PÁGINA DE CUENTA
+function cuentaExiste (){  
 
-    let sectionCuenta = document.createElement('div');
-    cuentaPage.innerHTML = '';
-    sectionCuenta.id='sectionCuenta';
-    sectionCuenta.classList.add("container-fluid");
-    sectionCuenta.classList.add("cartelFondo2");
-    sectionCuenta.classList.add("objCentred");
-    sectionCuenta.innerHTML = 
-    `<div class="cartelCarro">
-        <h2>Hola ${sessionStorage.getItem('nombreForm')}, bienvenido/a. Podés retomar o realizar compras sin problemas yendo <a href="productos.html">aqui</a>.</h2>
-        <button id="btnDelete" type="button" class="btn btn-success mb-2">CERRAR SESIÓN</button>
-    </div>`;
-            
-    cuentaPage.appendChild(sectionCuenta);  
-         
-} 
-//----BORRAR STORAGE, POR ALGUNA RAZÓN NO FUNCIONA DESDE EL DOM, UTILICÉ EL BOTON "BUSCAR" DEL NAVBAR PROVISORIAMENTE
-btnDelete?.addEventListener('click', () => {
-    deleteAllData(sessionStorage);
-}) 
- //ESTO SE CREA EN CARRITO SI CUENTA NO EXISTE
-    if(!unlockCarrito){
+    if(cuentaPage != null){ cuentaPage.innerHTML = `<div class="cartelCarro"><h2>Hola ${sessionStorage.getItem('nombreForm')}, bienvenido/a. Podés retomar o realizar compras sin problemas yendo <a href="productos.html">aqui</a>.</h2>
+    <button id="btnDelete" type="button" class="btn btn-success mb-2">CERRAR SESIÓN</button><button id="btnHardDelete" type="button" class="btn btn-success mb-2 ms-3">ELIMINAR CUENTA</button></div>`;}
 
-        let divCarrito = document.createElement('div');
-        divCarrito.id='lock';
-        divCarrito.classList.add("stopScrolling");
-        divCarrito.innerHTML = `<div id="modalProductos" class="modal">
-                                <div class="flex" id="flex">
-                                    <div class="modalStuff">
-                                        <div class="modalTitulo flex">
-                                            <h2>Para comprar necesitás una cuenta</h2>
-                                        </div>
-                                        <div class="modalBody longCards1">
-                                            <div class="card mb-3 w-100">
-                                                <div class="row g-0 p-3">
-                                                    <div class="text-center d-flex flex-wrap justify-content-around">
-                                                    <p>Para comprar en la página necesitás una cuenta. Es rápido y vas a poder retomar tu compra cuando quieras.</p>
-                                                    <a href="cuenta.html" type="button" class="btn btn-success mb-2">CREAR CUENTA</a>
-                                                    <a href="cuenta.html" type="button" class="btn btn-success mb-2">INICIAR SESIÓN</a>
-                                                    </div>
+}
+function cuentaInexistente(){
+    let divCarrito = document.createElement('div');
+    divCarrito.id='lock';
+    divCarrito.classList.add("stopScrolling");
+    divCarrito.innerHTML = `<div id="modalProductos" class="modal">
+                            <div class="flex" id="flex">
+                                <div class="modalStuff">
+                                    <div class="modalTitulo flex">
+                                        <h2>Para comprar necesitás una cuenta</h2>
+                                    </div>
+                                    <div class="modalBody longCards1">
+                                        <div class="card mb-3 w-100">
+                                            <div class="row g-0 p-3">
+                                                <div class="text-center d-flex flex-wrap justify-content-around">
+                                                <p>Para comprar en la página necesitás una cuenta. Es rápido y vas a poder retomar tu compra cuando quieras.</p>
+                                                <a href="cuenta.html" type="button" class="btn btn-success mb-2">CREAR CUENTA</a>
+                                                <a href="cuenta.html" type="button" class="btn btn-success mb-2">INICIAR SESIÓN</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>`;
-                
-        carritoPage.parentNode.appendChild(divCarrito);        
-    } 
+                            </div>
+                        </div>`;
+            
+    carritoPage?.parentNode.appendChild(divCarrito); //--------acceso condicional a objeto
+}  
+//------------------------------------------------------CERRAR SESIÓN O ELIMINAR CUENTA
+unlockCarrito = (sessionStorage.getItem('unlockCarrito') == 'true');   
 
+unlockCarrito ? cuentaExiste() : cuentaInexistente() //------operador ternario utilizando funciones
+let btnDelete = document.getElementById('btnDelete');
+btnDelete?.addEventListener('click', () => { //----------acceso condicional a objeto
+    
+    deleteAllData(sessionStorage);
+    location.reload();
+    
+    
+}) 
+let btnHardDelete = document.getElementById('btnHardDelete');
+btnHardDelete?.addEventListener('click', () => { //----------acceso condicional a objeto
+    
+    deleteAllData(localStorage);
+    deleteAllData(sessionStorage);
+    location.reload();
+    
+    
+}) 
+//--------------------------------------------EXXXXXXXXTRA: OBTENIENDO DATO DE FORMULARIO CONSULTA (INDEX)
 
+let enviarConsulta = document.getElementById('enviarConsulta');
+enviarConsulta.addEventListener('click',()=>{
 
+    localStorage.setItem ('emailConsulta', document.getElementById('emailConsulta').value);
+    localStorage.setItem ('newsletter', document.getElementById('newsletter').checked);
+    localStorage.setItem ('selectConsulta', document.getElementById('selectConsulta').value);
+    localStorage.setItem ('mensajeIndex', document.getElementById('mensajeIndex').value);
+    alert('consulta enviada!');
 
-
-
-
+} )
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //--CÓDIGO VIEJO PARA POTENCIAL REUTILIZACIÓN: 
 //KEYWORDS: filtros, búsqueda, imputs(prompts)
 class Plantas {

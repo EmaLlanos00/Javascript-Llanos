@@ -30,9 +30,7 @@ Me gustaría incorporar *javascript* en este sitio para llevar la simulación de
 
 <a name="new"><a/>
 ## Novedades
-- *24/07/22*
-- Agregado este readme.
-- Revisón de todos los `alt="..."` de `img`
+
 - *1/08/22*
 - Primeros acercamientos al JS de la página: Simulación de carrito con prompt
 - *3/08/22*
@@ -45,3 +43,10 @@ Me gustaría incorporar *javascript* en este sitio para llevar la simulación de
 - *12/08/22*
 - Obtención de datos de formularios, guardado en storage, obtención de éstos
 - Bloqueo de página carrito si no existe cuenta creada
+- *15/08/22*
+- Optimizando proyecto: cambios menores usando operadores avanzados
+- *17/08/22*
+- productos se agregan desde array
+- carrito muestra los productos seleccionados
+- se guarda la sesión si se lo requiere
+- se puede cerrar sesión o eliminar cuenta

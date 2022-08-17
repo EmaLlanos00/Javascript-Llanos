@@ -50,7 +50,7 @@
 				</ul>
 				<form class="d-flex" role="search">
 				<input class="form-control me-2 formFix" type="search" placeholder="Buscá algo..." aria-label="Search">
-				<button id="btnDelete" class="btn btn-outline-success formFix" type="submit">Buscar</button>
+				<button class="btn btn-outline-success formFix" type="submit">Buscar</button>
 				</form>
 			</div>
 			</div>
@@ -60,8 +60,8 @@
 	</div>
 	<!--finaliza nav y cartel procional-->
 	<!--inicia cartel grande-->
-	<div class="objCentred" id="cuentaHeader">
-		<section class="container-fluid cartelFondo2 objCentred">
+	<div class="objCentred">
+		<section class="container-fluid cartelFondo2 objCentred" id="cuentaHeader">
 			<h2 class="cartelCarro">Para comprar en la página necesitás una cuenta. Es rápido y vas a poder retomar tu compra cuando quieras.</h2>
 		</section>
 	</div>
@@ -97,7 +97,7 @@
 													<input id="cuentaPhone" type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Teléfono" value="" />
 												</div>
 												<div class="form-group">
-													<select class="form-control">
+													<select class="form-control" id="selectForm">
 														<option class="hidden"  selected disabled>Localidad</option>
 														<option>CABA</option>
 														<option>AMBA</option>
@@ -119,19 +119,19 @@
 				<form>
 				
 				<div class="mb-3">
-				  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo" >
+				  <input type="email" class="form-control" id="email2" aria-describedby="emailHelp" placeholder="Correo" >
 				  <div id="emailHelp" class="form-text fs-5">ejemplo@alguien.com</div>
 				</div>
 				<br>
 				<div class="mb-3">
-				  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+				  <input type="password" class="form-control" id="pass2" placeholder="Contraseña">
 				</div>
 				<div class="mb-3 form-check">
-				  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-				  <label class="form-check-label fs-4" for="exampleCheck1">Recordarme</label>
+				  <input type="checkbox" class="form-check-input" id="exampleCheck2">
+				  <label class="form-check-label fs-4" for="exampleCheck2">Recordarme</label>
 				</div>
 				<div class="text-center">
-				<button type="submit" class="btn btn-primary fs-4">Ingresar</button></div>
+				<button id="btnIngresarCuenta" type="submit" class="btn btn-primary fs-4">Ingresar</button></div>
 			  </form>
 		</div>
 		<!--finalizan formularios-->
