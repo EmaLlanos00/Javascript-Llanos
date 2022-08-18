@@ -33,7 +33,19 @@ productosenVenta.push(new Productos('maceta', 'Macetas plásticas n10', 'Colores
 productosenVenta.push(new Productos('maceta', 'Cilíndricas de barro', 'Hay varios tamaños, preguntar.', 'N10, 14, 18', 150, '../img/miscellaneous/macetas-barro-cilindro.webp', 30, 17));
 productosenVenta.push(new Productos('maceta', 'Cerámica bol', 'En color azul y rojo.', 'N15', 1300, '../img/miscellaneous/maceta-ceramica-2.webp', 2, 18));
 productosenVenta.push(new Productos('suculenta', 'Crassula Ovata', 'Ideal para principiantes', 'N10', 150, '../img/plants/crassula-ovata.webp', 47, 19));
-productosenVenta.push(new Productos('suculenta', 'Echeveria Laui', 'Hermoso ejemplar de colección', 'N10', 1200, '../img/plants/echeveria-laui.webp', 7, 20));
+productosenVenta.push(new Productos('suculenta', 'Agavoides "Romeo rubin"', 'Echeveria de colección', 'N6', 1200, '../img/plants/agavoides-romeo-rubin.webp', 21, 20));
+productosenVenta.push(new Productos('suculenta', 'Echeveria Laui', 'Hermoso ejemplar de colección', 'N6', 1200, '../img/plants/echeveria-laui.webp', 7, 21));
+productosenVenta.push(new Productos('suculenta', 'Anacampseros rufescens', 'Variegada. Últimos disponibles', 'N10', 800, '../img/plants/anacampseros-rufescens.webp', 12, 22));
+productosenVenta.push(new Productos('suculenta', 'Ceropegia woodi', 'Collar de corazones, planta colgante.', 'N8', 600, '../img/plants/ceropegia-woodi.webp', 31, 23));
+productosenVenta.push(new Productos('suculenta', 'Crassula dorothy', 'Ejemplar raro ideal para coleccionistas.', 'N10', 1000, '../img/plants/crassula-dorothy.webp', 8, 24));
+productosenVenta.push(new Productos('suculenta', 'Crassula muscosa', 'Planta de tipo arbustivo muy popular.', 'N8', 120, '../img/plants/crassula-muscosa.webp', 35, 25));
+productosenVenta.push(new Productos('suculenta', 'Curio rowleyanus variegado', 'Planta rosario variegada!!', 'N8', 600, '../img/plants/curio-rowleyanus-variegado.webp', 20, 26));
+productosenVenta.push(new Productos('suculenta', 'Echeveria dionysos', 'Bello ejemplar de bordes rojo oscuro.', 'N8', 850, '../img/plants/echeveria-dionysos.webp', 34, 27));
+productosenVenta.push(new Productos('suculenta', 'Graptoveria "Lovely rose"', 'Con forma de rosa :D.', 'N8', 400, '../img/plants/graptoveria-lovely-rose.webp', 26, 28));
+productosenVenta.push(new Productos('suculenta', 'Haworthia cooperi', 'Planta de sombra muy demandada.', 'N8', 700, '../img/plants/haworthia-cooperi.webp', 14, 29));
+productosenVenta.push(new Productos('suculenta', 'Haworthiopsis attenuata', 'En maceta n12, con flor.', 'N10', 200, '../img/plants/haworthiopsis-attenuata.webp', 24, 30));
+productosenVenta.push(new Productos('suculenta', 'Kalanchoe tomentosa', 'Planta orejas de conejo, ejemplares grandes', 'N12', 600, '../img/plants/kalanchoe-tomentosa.webp', 19, 31));
+
 
 let cards = document.getElementsByClassName ('contentCard');
 let productos = document.getElementById ('productGalery');
@@ -43,8 +55,32 @@ let divModal
 
 let carritoItems = document.getElementById('carritoItems');
 const carritoLista = [];
+//----------------------------------------------------------------------funciones que ejecutan librearías
+function toastify(texto, color, textColor){
+    Toastify({
+        text: texto,
+        duratio: 3200,
+        gravity: 'bottom',
+        position: 'right',
+        
+        style: {
 
-//------función para imprimir los productos del array en la página PRODUCTOS
+            background: color,
+            borderWidth: '1px',
+            borderRadius: '.5rem',
+            borderStyle: 'solid',
+            color: textColor,
+            fontSize: '1.5rem',
+            fontWeight: '600',
+            textAlign: 'center',
+            borderColor: '#cacaca',
+            opacity: '0.95',
+            padding:'5px',
+            width: '30rem'
+        }
+       }).showToast();
+}
+//----------------------------------------------------------------------función para imprimir los productos del array en la página PRODUCTOS
 productosenVenta.forEach((producto) =>{
     let divItems = document.createElement('div');
     divItems.classList.add('shopCards');
@@ -62,8 +98,8 @@ productosenVenta.forEach((producto) =>{
     let buyThisItem = document.getElementById(`item${producto.id}`);
     buyThisItem?.addEventListener('click', () => {
         addToCart (producto.id);
-       
-        sessionStorage.setItem('cartHasItems', true)
+        toastify('Agreado al carrito!!', '#ABFFD1', 'gray');
+        sessionStorage.setItem('cartHasItems', true);
     })
    
 })
@@ -236,15 +272,26 @@ window.addEventListener('click', function(e){
         console.log(recordarForm);
         recordarForm ? saveBoth() : obtainNSave(sessionStorage);
         if((passForm.length == 0) || (nombreForm.length == 0) || (apellidoForm.length == 0) || (emailForm.length == 0)){
-            alert('No ingresaste suficientes datos');
+            toastify('No ingresaste suficientes datos','red','black')
+            setTimeout (() => {location.reload()}, 1500)
+            
         }else if(passForm != passCheckForm){
-            alert('Las contraseñas deben coincidir');
-            deleteOnlyOne(passForm, recordarForm ? localStorage : sessionStorage)
-            deleteOnlyOne(passCheckForm, recordarForm ? localStorage : sessionStorage)
+            
+            toastify('Las contraseñas deben coincidir','red','black');
+            
+            setTimeout (() => {location.reload()}, 1500)
+            deleteOnlyOne('passForm', sessionStorage)
+            deleteOnlyOne('passCheckForm', sessionStorage)
+            deleteOnlyOne('passForm', localStorage)
+            deleteOnlyOne('passCheckForm', localStorage)
         }else{
             sessionStorage.setItem('unlockCarrito', 'true');
             console.log(unlockCarrito);
-            alert('Cuenta creada con éxito!!');
+            toastify('Cuenta creada','#c4fa7f','gray')
+            
+            setTimeout (() => {location.reload()}, 1500)
+            
+           
             
         }
     }else if(e.target == ingresarCuentaBtn){
@@ -253,10 +300,16 @@ window.addEventListener('click', function(e){
         let emailStorage = localStorage.getItem('emailForm');
         let contrasenaStorage = localStorage.getItem('passForm');
         if(correoIngresar == emailStorage && contrasenaIngresar == contrasenaStorage){
+            sessionStorage.setItem('nombreForm', localStorage.getItem('nombreForm'));
             sessionStorage.setItem('unlockCarrito', 'true');
-            alert('ingreso exitoso');
-        }
-    }
+            toastify('ingreso exitoso!','#c4fa7f','gray')
+            
+            setTimeout (() => {location.reload()}, 1500)
+            
+        }else{toastify('Los datos no coinciden','red','black')
+            /* this.location.reload() */
+        setTimeout (() => {location.reload()}, 1500)}
+    } 
 });
 
    
@@ -318,13 +371,22 @@ btnHardDelete?.addEventListener('click', () => { //----------acceso condicional 
 //--------------------------------------------EXXXXXXXXTRA: OBTENIENDO DATO DE FORMULARIO CONSULTA (INDEX)
 
 let enviarConsulta = document.getElementById('enviarConsulta');
-enviarConsulta.addEventListener('click',()=>{
+enviarConsulta?.addEventListener('click',()=>{
 
     localStorage.setItem ('emailConsulta', document.getElementById('emailConsulta').value);
     localStorage.setItem ('newsletter', document.getElementById('newsletter').checked);
     localStorage.setItem ('selectConsulta', document.getElementById('selectConsulta').value);
     localStorage.setItem ('mensajeIndex', document.getElementById('mensajeIndex').value);
-    alert('consulta enviada!');
+    /* toastify('consulta enviada!','#c4fa7f','gray') */
+    Swal.fire({
+        position: 'top',
+        background: '#c4fa7f',
+        icon: 'success',
+        iconColor: 'gray',
+        title: 'Consulta enviada!',
+        showConfirmButton: false,
+        timer: 1500
+      })
 
 } )
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

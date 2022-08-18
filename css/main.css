@@ -82,7 +82,7 @@ ul li a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: stretch;
   justify-content: space-evenly; }
   .productGalery img {
     width: 30rem;
@@ -202,13 +202,13 @@ body {
 /*Cards*/
 .shopCards {
   width: 25rem;
-  margin: 20px;
+  margin-bottom: 1rem;
   border-radius: 6px;
   overflow: hidden;
   background: #ffffff;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
   transition: all 400ms ease-out;
-  cursor: default; }
+  cursor: pointer; }
   .shopCards:hover {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-3%); }
