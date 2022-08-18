@@ -112,7 +112,7 @@ ul {
   font-family: $fuenteDos;
   font-size: 1em;
   width: 100%;
-  @include flex(row, wrap, flex-end, space-evenly);
+  @include flex(row, wrap, stretch, space-evenly);
 
   img {
     width: 30rem;
@@ -254,13 +254,13 @@ body {
 
 .shopCards {
   width: 25rem;
-  margin: 20px;
+  margin-bottom: 1rem;
   border-radius: 6px;
   overflow: hidden;
   background: map-get($map: $colors, $key: color9);
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
   transition: all 400ms ease-out;
-  cursor: default;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
