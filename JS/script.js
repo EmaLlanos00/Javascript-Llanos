@@ -54,7 +54,8 @@ let cerrar
 let divModal
 
 let carritoItems = document.getElementById('carritoItems');
-const carritoLista = [];
+const carritoLista = [];//ARRAY DE ITEMS DEL CARRITO
+
 //----------------------------------------------------------------------funciones que ejecutan librearías
 function toastify(texto, color, textColor){
     Toastify({
@@ -106,55 +107,68 @@ productosenVenta.forEach((producto) =>{
 
 //------------------lista de CARRITO  (array)
 const addToCart = (idProd) => { 
+    console.log(carritoLista.length)
     let item = productosenVenta.find((productos) => productos.id === idProd)
     carritoLista.push(item);
     sessionStorage.setItem('listaDeProductos', JSON.stringify(carritoLista))
-    console.log(carritoLista);
+    
 }
- 
-//-------funcion para agregar contenido al carrito
 
+//-----------------eliminar item del carrito desde la página "carrito"
+function deleteFromCart(prodID){        
+    let cartFromStorage = JSON.parse(sessionStorage.getItem('listaDeProductos')); 
+        let item = cartFromStorage.find((prod) => prod.id === prodID)
+        let index = cartFromStorage.indexOf(item)
+        cartFromStorage.splice(index, 1)
+        sessionStorage.setItem('listaDeProductos', JSON.stringify(cartFromStorage))
+       fillingCart()
+    toastify('Eliminaste un producto', 'gray', 'black');
+      
+}
+//---------------------------------función para agregar productos a la página "carrito"
+
+const fillingCart = () => {
+    let cartFromStorage = JSON.parse(sessionStorage.getItem('listaDeProductos'));
+    console.log(cartFromStorage);
+    carritoItems.innerHTML= '';
+    cartFromStorage.forEach((producto) =>{
+        let carritoItem = document.createElement('div');
+        carritoItem.innerHTML =
+                            `<article class="longCards1 d-flex justify-content-center">
+                            <div class="card mb-3 w-75">
+                                <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="${producto.foto}" class="img-fluid rounded-start w-75" alt="foto ${producto.nombre}">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title bodyPageFont"><strong>${producto.nombre}</strong></h5>
+                                        <p class="bodyPageFont card-text">Descripción: ${producto.desc}  <br>Tipo: ${producto.tipo} <br>Tamaño: ${producto.size} <br> Precio: $${producto.precio}</p>
+                                        <p class="card-text"><small class="text-muted">Stock: ${producto.stock}</small></p>
+                                        <button id="item${producto.id}" onclick="deleteFromCart(${producto.id})" type="button" class="btn btn-danger">Eliminar</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </article>`;
+                
+        carritoItems.appendChild(carritoItem);
+        let eliminarItem = document.getElementById(`item${producto.id}`);
+        
+    })
+    sessionStorage.setItem('listaDeProductos', JSON.stringify(cartFromStorage))
+}  
 
 let cartHasItems = (sessionStorage.getItem('cartHasItems') == 'true')
 console.log(cartHasItems)
 if(cartHasItems && carritoItems != null){
-    const fillingCart = () => {
-        let cartFromStorage = JSON.parse(sessionStorage.getItem('listaDeProductos'));
-        console.log(cartFromStorage);
-        carritoItems.innerHTML= '';
-        cartFromStorage.forEach((producto) =>{
-            let carritoItem = document.createElement('div');
-            carritoItem.innerHTML =
-                                `<article class="longCards1">
-                                <div class="card mb-3 w-100">
-                                    <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img src="${producto.foto}" class="img-fluid rounded-start w-100" alt="foto ${producto.nombre}">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title bodyPageFont"><strong>${producto.nombre}</strong></h5>
-                                            <p class="bodyPageFont card-text">${producto.desc}</p>
-                                            <p class="bodyPageFont card-text">${producto.precio}</p>
-                                            <p class="card-text"><small class="text-muted">${producto.stock}</small></p>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </article>`;
-                    
-            carritoItems.appendChild(carritoItem);   
-             
-        })
-        sessionStorage.setItem('listaDeProductos', JSON.stringify(cartFromStorage))
-    }  
-    console.log(fillingCart())
+    fillingCart()
+    
 }
-
 
 let fotoCards = document.querySelectorAll ('.shopCards img');
 let comprar = document.querySelectorAll ('.contentCard button');
-//-----función para abrir y cerrar MODAL
+//-----------------------------------------------------------------función para abrir y cerrar MODAL
 window.addEventListener('click', function(e){
     console.log(e.target)
     for(let i = 0; i<=cards.length; i++){
@@ -307,7 +321,7 @@ window.addEventListener('click', function(e){
             setTimeout (() => {location.reload()}, 1500)
             
         }else{toastify('Los datos no coinciden','red','black')
-            /* this.location.reload() */
+            
         setTimeout (() => {location.reload()}, 1500)}
     } 
 });
@@ -345,14 +359,14 @@ function cuentaInexistente(){
                             </div>
                         </div>`;
             
-    carritoPage?.parentNode.appendChild(divCarrito); //--------acceso condicional a objeto
+    carritoPage?.parentNode.appendChild(divCarrito);
 }  
 //------------------------------------------------------CERRAR SESIÓN O ELIMINAR CUENTA
 unlockCarrito = (sessionStorage.getItem('unlockCarrito') == 'true');   
 
-unlockCarrito ? cuentaExiste() : cuentaInexistente() //------operador ternario utilizando funciones
+unlockCarrito ? cuentaExiste() : cuentaInexistente()
 let btnDelete = document.getElementById('btnDelete');
-btnDelete?.addEventListener('click', () => { //----------acceso condicional a objeto
+btnDelete?.addEventListener('click', () => {
     
     deleteAllData(sessionStorage);
     location.reload();
@@ -360,7 +374,7 @@ btnDelete?.addEventListener('click', () => { //----------acceso condicional a ob
     
 }) 
 let btnHardDelete = document.getElementById('btnHardDelete');
-btnHardDelete?.addEventListener('click', () => { //----------acceso condicional a objeto
+btnHardDelete?.addEventListener('click', () => {
     
     deleteAllData(localStorage);
     deleteAllData(sessionStorage);
