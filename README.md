@@ -50,3 +50,8 @@ Me gustaría incorporar *javascript* en este sitio para llevar la simulación de
 - carrito muestra los productos seleccionados
 - se guarda la sesión si se lo requiere
 - se puede cerrar sesión o eliminar cuenta
+- *22/08/22*
+- filtros de "productos" funcionales
+- agregadas funcionalidades a carrito como:
+- costo total, vaciar carrito, eliminar un producto
+- carrito se guarda en toda situación

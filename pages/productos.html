@@ -83,7 +83,7 @@
 							<div class="accordion" id="accordionPanelsStayOpenExample">
 								<div class="accordion-item">
 									<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+										<button class="accordion-button collapsed" type="submit" data-bs-toggle="collapse"
 											data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
 											aria-controls="panelsStayOpen-collapseOne">
 											CACTUS
@@ -107,7 +107,7 @@
 								</div>
 								<div class="accordion-item">
 									<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+										<button class="accordion-button collapsed" type="submit" data-bs-toggle="collapse"
 											data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
 											aria-controls="panelsStayOpen-collapseTwo">
 											SUCULENTAS
@@ -133,7 +133,7 @@
 								</div>
 								<div class="accordion-item">
 									<h2 class="accordion-header" id="panelsStayOpen-headingThree">
-										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+										<button class="accordion-button collapsed" type="submit" data-bs-toggle="collapse"
 											data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
 											aria-controls="panelsStayOpen-collapseThree">
 											MACETAS
@@ -180,7 +180,30 @@
 		</div>
 		<!----------------------------------------inicia secciones de productos----------->
 		<section id="cactus" class="border border-2 border-end-0 border-top-0 mb-4">
-			<h2 class="itemsTitleStyle rounded-5 mt-4">Todo</h2>
+			<!-- <h2 class="itemsTitleStyle rounded-3 mt-4">Todo</h2> -->
+			<ul class="nav nav-tabs rounded-5" style="background-color: #cacaca;">
+				<li id="filtroDefault" class="nav-item" onclick="mostrarTododeNuevo()">
+				  <a class="nav-link active" aria-current="page" href="#">Todo</a>
+				</li>
+				<li id="filtroCactus" class="nav-item" onclick="filtrarArray('cactus')">
+				  <a class="nav-link disabled" href="#">Cactus</a>
+				</li>
+				<li id="filtroSuculentas" class="nav-item" onclick="filtrarArray('suculenta')">
+				  <a class="nav-link disabled" href="#">Suculentas</a>
+				</li>
+				<li id="filtroMacetas" class="nav-item" onclick="filtrarArray('maceta')">
+				  <a class="nav-link disabled" href="#">Macetas</a>
+				</li>
+				<li id="filtroDropdown" class="nav-item dropdown" onclick="estilizarTabActivo ('yes');">
+					<a  class="nav-link dropdown-toggle disabled" aria-current="true" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Filtrar por</a>
+					<ul class="dropdown-menu">
+					  <li><a id="filtroExpensive" class="dropdown-item" href="#" onclick="filtrosDropdown('Mayor a menor')">Mayor a menor</a></li>
+					  <li><a id="filtroCheap" class="dropdown-item" href="#" onclick="filtrosDropdown('Menor a mayor')">Menor a mayor</a></li>
+					  <li><a id="filtroAZ" class="dropdown-item" href="#" onclick="filtrosDropdown('A - Z')">A - Z</a></li>
+					  <li><a id="filtroZA" class="dropdown-item" href="#" onclick="filtrosDropdown('Z - A')">Z - A</a></li>
+					</ul>
+				  </li>
+			  </ul>
 			<div class="productGalery" id="productGalery">
 	
 			</div>
