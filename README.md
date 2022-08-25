@@ -55,3 +55,5 @@ Me gustaría incorporar *javascript* en este sitio para llevar la simulación de
 - agregadas funcionalidades a carrito como:
 - costo total, vaciar carrito, eliminar un producto
 - carrito se guarda en toda situación
+- *25/08/22*
+- Obtenidos datos desde archivo JSON de manera asincrónica

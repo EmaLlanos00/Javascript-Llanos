@@ -9,12 +9,12 @@ class Productos {
         this.precio = parseFloat(precio);
         this.foto = foto;
         this.stock = parseInt(stock);
-        this.id = id;
+        this.id = parseInt(id);
 
     }
 }
 const productosenVenta = [];
-productosenVenta.push(new Productos('cactus', 'Astrophytum asterias', 'Cactus redondo de porte pequeño.', 'N10', 1150, '../img/plants/Astrophytum-asterias.jpg', 14, 01));
+/* productosenVenta.push(new Productos('cactus', 'Astrophytum asterias', 'Cactus redondo de porte pequeño.', 'N10', 1150, '../img/plants/Astrophytum-asterias.jpg', 14, 01));
 productosenVenta.push(new Productos('suculenta', 'Crassula muscosa', 'Planta de tipo arbustivo muy popular.', 'N8', 120, '../img/plants/crassula-muscosa.webp', 35, 02));
 productosenVenta.push(new Productos('maceta', 'Cerámica bol', 'En color azul y rojo.', 'N15', 1300, '../img/miscellaneous/maceta-ceramica-2.webp', 2, 03));
 productosenVenta.push(new Productos('suculenta', 'Anacampseros rufescens', 'Variegada. Últimos disponibles', 'N10', 800, '../img/plants/anacampseros-rufescens.webp', 12, 04));
@@ -45,8 +45,19 @@ productosenVenta.push(new Productos('suculenta', 'Graptoveria "Lovely rose"', 'C
 productosenVenta.push(new Productos('suculenta', 'Haworthia cooperi', 'Planta de sombra muy demandada.', 'N8', 700, '../img/plants/haworthia-cooperi.webp', 14, 29));
 productosenVenta.push(new Productos('suculenta', 'Haworthiopsis attenuata', 'En maceta n12, con flor.', 'N10', 200, '../img/plants/haworthiopsis-attenuata.webp', 24, 30));
 productosenVenta.push(new Productos('suculenta', 'Kalanchoe tomentosa', 'Planta orejas de conejo, ejemplares grandes', 'N12', 600, '../img/plants/kalanchoe-tomentosa.webp', 19, 31));
-productosenVenta.push(new Productos('suculenta', 'Graptopetalum superbum', 'Ejemplar único.', 'N16', 700, '../img/plants/graptopetalum-superbum.webp', 1, 32));
+productosenVenta.push(new Productos('suculenta', 'Graptopetalum superbum', 'Ejemplar único.', 'N16', 700, '../img/plants/graptopetalum-superbum.webp', 1, 32)); */
+//------------------------------CARGANDO DATOS ASINCRÓNICAMENTE CON FETCH DESDE RUTA RELATIVA (JSON)
 
+fetch('../JSON/products.json')
+.then ( (res) => res.json() )
+.then ( (products) => { products.forEach((item) => {
+    productosenVenta.push(new Productos(`${item.tipo}`, `${item.nombre}`, `${item.desc}`, `${item.size}`, `${item.precio}`, `${item.foto}`, `${item.stock}`, `${item.id}`));
+})
+armarPagProd(products);
+creandoModal(products);
+})
+
+console.log(productosenVenta)
 let productos = document.getElementById ('productGalery');
 let flex
 let cerrar
@@ -80,6 +91,11 @@ function toastify(texto, color, textColor){
        }).showToast();
 }
 //----------------------------------------------------------------------función para imprimir los productos del array en la página PRODUCTOS
+
+/* fetch('../JSON/products.json')
+.then ( (res) => res.json() )
+.then ( (data) => { armarPagProd(data)
+}) */
 function armarPagProd(array) {
     if (productos != null) {
         productos.innerHTML = '';
@@ -108,7 +124,7 @@ function armarPagProd(array) {
         })
     }
 } 
-armarPagProd(productosenVenta);  
+/* armarPagProd(productosenVenta);  */ 
 //-----------------------------------------------------------------función para abrir y cerrar MODAL
 function creandoModal(array){
 
@@ -178,7 +194,7 @@ function creandoModal(array){
     });
     
 }
-creandoModal(productosenVenta);     
+/* creandoModal(productosenVenta);  */    
 //---------------------------------------------------------------FILTRADO DE PRODUCTOS 
 function filtrarArray(string){
     const arrayFiltrado = productosenVenta.filter((producto) => producto.tipo === string);
@@ -190,14 +206,19 @@ function filtrarArray(string){
     
 }
 function mostrarTododeNuevo(){
-    armarPagProd(productosenVenta);
+     fetch('../JSON/products.json')
+.then ( (res) => res.json() )
+.then ( (data) => { armarPagProd(data);
+    creandoModal(data);
+}) 
     estilizarTabActivo('todo');
-    creandoModal(productosenVenta);
+    
     let activeDropdown = document.querySelector('#filtroDropdown a')
     activeDropdown.textContent = 'Filtrar por'
 }
 
 function masFiltros(string) {
+
     const copiaArray = productosenVenta.slice(0);
     switch (string) {
         case 'Mayor a menor': 
@@ -529,25 +550,72 @@ btnHardDelete?.addEventListener('click', () => {
     
     
 }) 
-//--------------------------------------------EXXXXXXXXTRA: OBTENIENDO DATO DE FORMULARIO CONSULTA (INDEX)
+/* //--------------------------------------------EXXXXXXXXTRA: OBTENIENDO DATO DE FORMULARIO CONSULTA (INDEX)
 
 let enviarConsulta = document.getElementById('enviarConsulta');
-enviarConsulta?.addEventListener('click',()=>{
+enviarConsulta?.addEventListener('click', enviarFormulario() )
+function enviarFormulario(){
+    let emailConsulta = document.getElementById('emailConsulta').value;
+    let nombreConsulta = document.getElementById('nombreConsulta').value;
+    let newsletter = document.getElementById('newsletter').checked;
+    let selectConsulta = document.getElementById('selectConsulta').value;
+    let mensajeIndex = document.getElementById('mensajeIndex').value;
+    let formulario = document.querySelector('#formulario'); 
 
-    localStorage.setItem ('emailConsulta', document.getElementById('emailConsulta').value);
-    localStorage.setItem ('newsletter', document.getElementById('newsletter').checked);
-    localStorage.setItem ('selectConsulta', document.getElementById('selectConsulta').value);
-    localStorage.setItem ('mensajeIndex', document.getElementById('mensajeIndex').value);
+    localStorage.setItem ('emailConsulta', emailConsulta);
+    localStorage.setItem ('nombreConsulta', nombreConsulta);
+    localStorage.setItem ('newsletter', newsletter);
+    localStorage.setItem ('selectConsulta', selectConsulta);
+    localStorage.setItem ('mensajeIndex', mensajeIndex);
 
-    Swal.fire({
-        position: 'top',
-        background: '#c4fa7f',
-        icon: 'success',
-        iconColor: 'gray',
-        title: 'Consulta enviada!',
-        showConfirmButton: false,
-        timer: 1500
-      })
+    
+        let serviceId = 'defaultservice'
+        let templateId = 'template001'
+        let templateParams = {
 
-} )
+            emailConsulta: emailConsulta,
+            nombreConsulta: nombreConsulta,
+            newsletter: newsletter,
+            selectConsulta: selectConsulta,
+            mensajeIndex: mensajeIndex
 
+        }
+        let userId = 'pAzh-rv7THJ3HuKp4'
+  
+    emailjs.send(serviceId, templateId, formulario, userId)
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+        console.log('FAILED...', error);
+    });
+    console.log('fin del proceso') 
+    
+    await  fetch('https://api.emailjs.com/api/v1.0/email/send',{
+        method: post,
+        body: JSON.stringify(data),
+        headers: 'aplication/json'
+        
+    } )
+    if(Response.ok){
+       Swal.fire({
+            position: 'top',
+            background: '#c4fa7f',
+            icon: 'success',
+            iconColor: 'gray',
+            title: 'Consulta enviada!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+      }else if(!Response.ok){
+       Swal.fire({
+            position: 'top',
+            background: 'red',
+            icon: 'error',
+            iconColor: 'black',
+            title: 'Hubo un error',
+            showConfirmButton: false,
+            timer: 1500
+          })
+      } 
+
+}*/
