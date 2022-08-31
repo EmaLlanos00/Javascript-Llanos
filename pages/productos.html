@@ -182,25 +182,25 @@
 		<section id="cactus" class="border border-2 border-end-0 border-top-0 mb-4">
 			<!-- <h2 class="itemsTitleStyle rounded-3 mt-4">Todo</h2> -->
 			<ul class="nav nav-tabs rounded-5" style="background-color: #cacaca;">
-				<li id="filtroDefault" class="nav-item" onclick="mostrarTododeNuevo()">
+				<li id="filtroDefault" class="nav-item" >
 				  <a class="nav-link active" aria-current="page" href="#">Todo</a>
 				</li>
-				<li id="filtroCactus" class="nav-item" onclick="filtrarArray('cactus')">
+				<li id="filtroCactus" class="nav-item" >
 				  <a class="nav-link disabled" href="#">Cactus</a>
 				</li>
-				<li id="filtroSuculentas" class="nav-item" onclick="filtrarArray('suculenta')">
+				<li id="filtroSuculentas" class="nav-item" >
 				  <a class="nav-link disabled" href="#">Suculentas</a>
 				</li>
-				<li id="filtroMacetas" class="nav-item" onclick="filtrarArray('maceta')">
+				<li id="filtroMacetas" class="nav-item" >
 				  <a class="nav-link disabled" href="#">Macetas</a>
 				</li>
-				<li id="filtroDropdown" class="nav-item dropdown" onclick="estilizarTabActivo ('yes');">
+				<li id="filtroDropdown" class="nav-item dropdown" >
 					<a  class="nav-link dropdown-toggle disabled" aria-current="true" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Filtrar por</a>
 					<ul class="dropdown-menu">
-					  <li><a id="filtroExpensive" class="dropdown-item" href="#" onclick="filtrosDropdown('Mayor a menor')">Mayor a menor</a></li>
-					  <li><a id="filtroCheap" class="dropdown-item" href="#" onclick="filtrosDropdown('Menor a mayor')">Menor a mayor</a></li>
-					  <li><a id="filtroAZ" class="dropdown-item" href="#" onclick="filtrosDropdown('A - Z')">A - Z</a></li>
-					  <li><a id="filtroZA" class="dropdown-item" href="#" onclick="filtrosDropdown('Z - A')">Z - A</a></li>
+					  <li><a id="filtroExpensive" class="dropdown-item" href="#" >Mayor precio</a></li>
+					  <li><a id="filtroCheap" class="dropdown-item" href="#" >Menor precio</a></li>
+					  <li><a id="filtroAZ" class="dropdown-item" href="#" >A - Z</a></li>
+					  <li><a id="filtroZA" class="dropdown-item" href="#" >Z - A</a></li>
 					</ul>
 				  </li>
 			  </ul>
@@ -285,6 +285,6 @@
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-	<script src="../JS/script.js"></script>
+	<script src="../JS/script-productos.js"></script>
 </body>
 </html>

@@ -256,7 +256,7 @@ body {
   grid-column: 1 / span 3; }
 
 .header {
-  width: 99%;
+  width: 100%;
   grid-area: header;
   display: flex;
   flex-direction: row;

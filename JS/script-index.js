@@ -1,106 +1,64 @@
-//--------------------------------------------EXXXXXXXXTRA: OBTENIENDO DATO DE FORMULARIO CONSULTA (INDEX)
+//--------------------------------------------GUARDANDO DATOS DE FORM EN SESSIONSTORAGE, METODO POST: ENVIANDO DATOS DE FORM A GESTOR DE EMAILS
 
 let enviarConsulta = document.getElementById('enviarConsulta');
 
-enviarConsulta.addEventListener('submit', enviarFormulario(event));
- function enviarFormulario(event){
+window.addEventListener('click', function(e){
     
+        if(e.target == enviarConsulta){
+        e.preventDefault();
+        enviarDataForm();
+    }  
+});
+ 
+const enviarDataForm = () => { 
+
     let emailConsulta = document.getElementById('emailConsulta').value;
     let nombreConsulta = document.getElementById('nombreConsulta').value;
     let newsletter = document.getElementById('newsletter').checked;
     let selectConsulta = document.getElementById('selectConsulta').value;
     let mensajeIndex = document.getElementById('mensajeIndex').value;
-    let formulario = document.querySelector('#formulario'); 
 
- /*    localStorage.setItem ('emailConsulta', emailConsulta);
-    localStorage.setItem ('nombreConsulta', nombreConsulta);
-    localStorage.setItem ('newsletter', newsletter);
-    localStorage.setItem ('selectConsulta', selectConsulta);
-    localStorage.setItem ('mensajeIndex', mensajeIndex); */
+    sessionStorage.setItem ('emailConsulta', emailConsulta);
+    sessionStorage.setItem ('nombreConsulta', nombreConsulta);
+    sessionStorage.setItem ('newsletter', newsletter);
+    sessionStorage.setItem ('selectConsulta', selectConsulta);
+    sessionStorage.setItem ('mensajeIndex', mensajeIndex);
 
-    
-      /*   let serviceId = 'template_001'
-        let templateId = 'template_001'
-        let templateParams = {
-
-            emailConsulta: emailConsulta,
-            nombreConsulta: nombreConsulta,
-            newsletter: newsletter,
-            selectConsulta: selectConsulta,
-            mensajeIndex: mensajeIndex
-
-        }
-        let userId = 'pAzh-rv7THJ3HuKp4'
-  
-     emailjs.send(serviceId, templateId, formulario, userId)
-    .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-        console.log('FAILED...', error);
-    });
-    console.log('fin del proceso') */
-    
-   
-  /*  let templateParams = {
-      user_id: 'pAzh-rv7THJ3HuKp4',
-      service_id: 'service_wgzoscw',
-      template_id: 'template_001',
-      template_params: {
-
-            "emailConsulta": emailConsulta,
-            "nombreConsulta": nombreConsulta,
-            "newsletter": newsletter,
-            "selectConsulta": selectConsulta,
-            "mensajeIndex": mensajeIndex
-      }
-  }; */
-    fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    fetch('https://api.emailjs.com/api/v1.0/email/send-form', {
         method: 'POST',
         headers: {'content-Type': 'aplication/json'},
         body: JSON.stringify({
-            user_id: 'pAzh-rv7THJ3HuKp4',
-            service_id: 'service_wgzoscw',
-            template_id: 'template_001',
-            template_params: {
-      
-                  "emailConsulta": emailConsulta,
-                  "nombreConsulta": nombreConsulta,
-                  "newsletter": newsletter,
-                  "selectConsulta": selectConsulta,
-                  "mensajeIndex": mensajeIndex
-            }
-        })
+
+            user_id: "pAzh-rv7THJ3HuKp4",
+            service_id: "_wgzoscw",
+            template_id: "template_001",
+            emailConsulta : document.getElementById('emailConsulta').value,
+            nombreConsulta : document.getElementById('nombreConsulta').value,
+            newsletter : document.getElementById('newsletter').checked,
+            selectConsulta : document.getElementById('selectConsulta').value,
+            mensajeIndex : document.getElementById('mensajeIndex').value})
         
-        
-    } )
-    .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-     }, function(error) {
-        console.log('FAILED...', error);
-     });
-   /*  .then( () => {if(Response.ok){
-       Swal.fire({
-            position: 'top',
-            background: '#c4fa7f',
-            icon: 'success',
-            iconColor: 'gray',
-            title: 'Consulta enviada!',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          console.log(respose.status)
-          console.log(response.text)
-      }else{
-       Swal.fire({
-            position: 'top',
-            background: 'red',
-            icon: 'error',
-            iconColor: 'black',
-            title: 'Hubo un error',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          console.log('FAILED...')
-      }}) */
-    
-}
+         } )
+    .then((response) => {
+        if(response.status < 400){
+            Swal.fire({
+                position: 'top',
+                background: '#c4fa7f',
+                icon: 'success',
+                iconColor: 'gray',
+                title: 'Consulta enviada!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }else if(response.status > 399){
+            Swal.fire({
+                position: 'top',
+                background: '#DC3545',
+                icon: 'error',
+                iconColor: 'black',
+                title: 'Hubo un error',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    })}
