@@ -36,10 +36,6 @@ Paneo rápido de algunas cosas que me ayudaron mucho:
 - **Fetch, API y JSON**: con diferencia lo más difícil de entender de todo el curso (promises y fetch), utilicé fetch para montar mi array con un array de JSON utilizando un constructor. No me sentí satisfecho utilizando Json, quería usar alguna API y me pareció buena idea hacer mi formulario de contacto más realista. Utilizar EmailJS me costó **horrores** porque su documentación es limitada (hay ejemplos con React, Vue, AJAX y sus métodos propios, no JS puro con fetch), pero estoy muy contento de que funcione, ya puedo aprender React en paz.
 
 
-![mails recibidos por la API screenshot](https://lh3.googleusercontent.com/XqboUjeLOlOhbB1ZFBoLGJrrN7vYFJBXNSnxkODnExfdaWl79MQAwOc1YV3hmFhBOT-JRVN_gjQyN4EBQooVLVk8OmxiHIkCqhqM7GV9wO89Zod_El2-8x2q7KOUHnbSQkGZc-LEEh2P5_ji8fTGJ2eOaaB23zmaFDp7EooNJzmDb0ExZs_ZxHvuY8dbLAofSziFHyfzdqpIrzGX3fre_2EQX53_nO2_tmMDfXxVf_v4m7q3fZHAx5YKTe4vt5kUZJ-5jBQgK5G9tGHXSK_JxLkFeJvKa4T9g5MH4zC0jvLHxRnqTmpqgKZ6zBoMymUuMSksz0GvFiEdRFNg5xof1oBhADnvxR5Pv6g2oRa_D76Kmm3lMEi__T-6WKU_mSOVcr9wwG4dnF23aW_A1IqXscd8WopqtY-ErCBLFayZS5sKu_eISv96T0Anj4ykF69tj3Aute3f13L8Yt1N99x8xvkCIhoZtoIhlRfI9WOwHziGYnON3zReixOSFribgOiQumg13goHXKS4gi8j7uOHJlsr57ZitzSm-gVnW_oBQHikwAKZaZK18PjMqBPgFdXaERPEk4nPxLJXR_6x6Tu7lDrFhg4xTGLvTQAH7gxHJ7LAgxvlNu_eEnoiNShl_WvLP5HXfAYCl9lE8G3RbmgDJLwXkwniNRPdLmiBpvgNl2Q6SPu-RxCk3ttIh--ezPBjTY--XsyZ6H7xA_JimqUd7JpkY9bf18JKATsrvc5UgKw9VKIbQf5vRKK2wCnp=w938-h489-no?authuser=0)
- > Acá una muestra visual del constante "prueba y error", esto es lo que yo bauticé "EmailJS HELL" (todos mails con datos vacíos).
-----
-
 ## Estado del proyecto
 A futuro me gustaría incorporar *javascript* en "blog", agregar más funcionalidades al carrito y volcar grandes cantidades de datos al sitio para incorporar buscadores y filtros más sofisticados con *tags*, etc.
 
